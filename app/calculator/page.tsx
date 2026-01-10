@@ -17,7 +17,8 @@ export default function Calculator() {
     systemSize: number;
     numberOfPanels: number;
     batteryCapacity: number;
-    estimatedProduction: number;
+    estimatedMonthlyProduction: number;
+    estimatedDailyProduction: number;
   } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,22 +43,47 @@ export default function Calculator() {
     const numberOfPanels = Math.ceil(dailyConsumption / energyPerPanel);
     const systemSize = (numberOfPanels * moduleCapacity) / 1000;
     const batteryCapacity = dailyConsumption * batteryAutonomy;
-    const estimatedProduction = numberOfPanels * energyPerPanel * 30;
+    const estimatedDailyProduction = numberOfPanels * energyPerPanel;
+    const estimatedMonthlyProduction = estimatedDailyProduction * 30;
 
     setResult({
       systemSize: parseFloat(systemSize.toFixed(2)),
       numberOfPanels,
       batteryCapacity: parseFloat(batteryCapacity.toFixed(2)),
-      estimatedProduction: parseFloat(estimatedProduction.toFixed(2)),
+      estimatedMonthlyProduction: parseFloat(estimatedMonthlyProduction.toFixed(2)),
+      estimatedDailyProduction: parseFloat(estimatedDailyProduction.toFixed(2)),
     });
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-800/80 dark:border-gray-700">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
+              Solar Calculator
+            </Link>
+            <div className="flex gap-6">
+              <Link
+                href="/documentation"
+                className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
+              >
+                Documentation
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
       <main className="container mx-auto px-4 py-8">
         <Link
           href="/"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 mb-8"
+          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -208,7 +234,7 @@ export default function Calculator() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 px-6 rounded-lg hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
+                className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-emerald-500/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
               >
                 Calculate System
               </button>
@@ -220,26 +246,26 @@ export default function Calculator() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Calculation Results
               </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     System Size
                   </p>
-                  <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                  <p className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
                     {result.systemSize} kW
                   </p>
                 </div>
 
-                <div className="bg-indigo-50 dark:bg-gray-700 p-6 rounded-lg">
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     Number of Panels
                   </p>
-                  <p className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                  <p className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">
                     {result.numberOfPanels}
                   </p>
                 </div>
 
-                <div className="bg-purple-50 dark:bg-gray-700 p-6 rounded-lg">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     Battery Capacity
                   </p>
@@ -248,12 +274,21 @@ export default function Calculator() {
                   </p>
                 </div>
 
-                <div className="bg-green-50 dark:bg-gray-700 p-6 rounded-lg">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    Estimated Daily Production
+                  </p>
+                  <p className="text-3xl font-bold text-green-600 dark:text-green-400">
+                    {result.estimatedDailyProduction} kWh
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-lime-50 to-green-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     Estimated Monthly Production
                   </p>
-                  <p className="text-3xl font-bold text-green-600 dark:text-green-400">
-                    {result.estimatedProduction} kWh
+                  <p className="text-3xl font-bold text-lime-600 dark:text-lime-400">
+                    {result.estimatedMonthlyProduction} kWh
                   </p>
                 </div>
               </div>

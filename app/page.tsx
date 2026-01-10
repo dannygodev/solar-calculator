@@ -3,33 +3,54 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <main className="container mx-auto px-4 py-16">
-        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-8rem)]">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+    <div className="min-h-screen relative">
+      <Image
+        src="/solar-panels.jpg"
+        alt="Solar Panels Background"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
+      
+      <nav className="relative z-10 bg-white/10 backdrop-blur-md border-b border-white/20">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-2xl font-bold text-white">
+              Solar Calculator
+            </Link>
+            <div className="flex gap-6">
+              <Link
+                href="/documentation"
+                className="text-white hover:text-blue-300 transition-colors font-medium"
+              >
+                Documentation
+              </Link>
+              <Link
+                href="/contact"
+                className="text-white hover:text-blue-300 transition-colors font-medium"
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main className="relative z-10 container mx-auto px-4 py-16">
+        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
+          <div className="text-center mb-12 backdrop-blur-sm bg-white/5 p-8 rounded-3xl border border-white/20">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
               Solar Energy Calculator
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow">
               Calculate the perfect photovoltaic system for your energy needs
             </p>
           </div>
 
-          <div className="relative w-full max-w-4xl mb-12 rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/solar-panels.jpg"
-              alt="Solar Panels"
-              width={1200}
-              height={600}
-              className="w-full h-auto object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-          </div>
-
           <Link
             href="/calculator"
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-white bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-full shadow-2xl hover:shadow-emerald-500/50 transform hover:scale-105 transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
           >
             <svg
               className="w-6 h-6 mr-2"
