@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "./context/LanguageContext";
+import LanguageSelector from "./components/LanguageSelector";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen relative">
       <Image
@@ -17,21 +23,22 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold text-white">
-              Solar Calculator
+              {t.nav.title}
             </Link>
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               <Link
                 href="/documentation"
                 className="text-white hover:text-blue-300 transition-colors font-medium"
               >
-                Documentation
+                {t.nav.documentation}
               </Link>
               <Link
                 href="/contact"
                 className="text-white hover:text-blue-300 transition-colors font-medium"
               >
-                Contact
+                {t.nav.contact}
               </Link>
+              <LanguageSelector />
             </div>
           </div>
         </div>
@@ -41,10 +48,10 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
           <div className="text-center mb-12 backdrop-blur-sm bg-white/5 p-8 rounded-3xl border border-white/20">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Solar Energy Calculator
+              {t.home.title}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow">
-              Calculate the perfect photovoltaic system for your energy needs
+              {t.home.subtitle}
             </p>
           </div>
 
@@ -65,7 +72,7 @@ export default function Home() {
                 d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
               />
             </svg>
-            Start Calculation
+            {t.home.startButton}
           </Link>
         </div>
       </main>

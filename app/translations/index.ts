@@ -1,0 +1,318 @@
+export const translations = {
+  en: {
+    nav: {
+      title: "Solar Calculator",
+      documentation: "Documentation",
+      contact: "Contact",
+    },
+    home: {
+      title: "Solar Energy Calculator",
+      subtitle: "Calculate the perfect photovoltaic system for your energy needs",
+      startButton: "Start Calculation",
+    },
+    calculator: {
+      backToHome: "Back to Home",
+      title: "Solar System Calculator",
+      subtitle: "Enter your details to calculate your photovoltaic system requirements",
+      form: {
+        monthlyConsumption: "Monthly Consumption (kWh)",
+        monthlyConsumptionPlaceholder: "e.g., 300",
+        sunshineHours: "Daily Sunshine Hours",
+        sunshineHoursPlaceholder: "e.g., 5.5",
+        location: "Location",
+        locationPlaceholder: "e.g., California, USA",
+        moduleCapacity: "Solar Module Capacity (W)",
+        moduleCapacityPlaceholder: "e.g., 400",
+        losses: "System Losses (%)",
+        lossesPlaceholder: "e.g., 15",
+        batteryAutonomy: "Battery Autonomy (days)",
+        batteryAutonomyPlaceholder: "e.g., 2",
+        calculateButton: "Calculate System",
+      },
+      results: {
+        title: "Calculation Results",
+        systemSize: "System Size",
+        numberOfPanels: "Number of Panels",
+        batteryCapacity: "Battery Capacity",
+        dailyProduction: "Estimated Daily Production",
+        monthlyProduction: "Estimated Monthly Production",
+        note: "Note:",
+        noteText: "These calculations are estimates based on the information provided. For a precise system design, please consult with a certified solar installer.",
+      },
+    },
+    documentation: {
+      backToHome: "Back to Home",
+      title: "Documentation",
+      subtitle: "Learn how to use the Solar Calculator and understand the calculations",
+      gettingStarted: {
+        title: "Getting Started",
+        description: "The Solar Energy Calculator helps you determine the optimal photovoltaic system size for your energy needs. Simply input your consumption data and location information to receive detailed recommendations.",
+        steps: [
+          "Navigate to the Calculator page",
+          "Fill in all required fields with your data",
+          'Click "Calculate System" to view results',
+          "Review the recommended system specifications",
+        ],
+      },
+      inputParameters: {
+        title: "Input Parameters",
+        monthlyConsumption: {
+          title: "Monthly Consumption (kWh)",
+          description: "Your average monthly electricity consumption in kilowatt-hours. You can find this on your electricity bill. For example, a typical household might use 300-500 kWh per month.",
+        },
+        sunshineHours: {
+          title: "Daily Sunshine Hours",
+          description: "The average number of peak sun hours per day in your location. This varies by geographic location and season. You can find this data from solar radiation databases or local meteorological services. Typical values range from 3-7 hours.",
+        },
+        location: {
+          title: "Location",
+          description: "Your geographic location (city, state, or country). This helps contextualize the results, though the calculations primarily rely on the sunshine hours you provide.",
+        },
+        moduleCapacity: {
+          title: "Solar Module Capacity (W)",
+          description: "The power rating of individual solar panels you plan to use, measured in watts. Modern solar panels typically range from 300W to 450W. Higher wattage panels mean fewer panels needed for the same system size.",
+        },
+        losses: {
+          title: "System Losses (%)",
+          description: "The expected energy loss due to factors like inverter efficiency, wiring, shading, dust, and temperature. A typical value is 15-25%. Higher quality systems and optimal conditions result in lower losses.",
+        },
+        batteryAutonomy: {
+          title: "Battery Autonomy (days)",
+          description: "The number of days your battery system should power your home without sunlight. Typical values are 1-3 days. Higher autonomy provides more backup power but requires larger, more expensive battery banks.",
+        },
+      },
+      understandingResults: {
+        title: "Understanding Results",
+        systemSize: {
+          title: "System Size (kW)",
+          description: "The total capacity of your solar panel system in kilowatts. This is calculated by multiplying the number of panels by the individual panel capacity.",
+        },
+        numberOfPanels: {
+          title: "Number of Panels",
+          description: "The recommended number of solar panels needed to meet your energy requirements, accounting for sunshine hours and system losses.",
+        },
+        batteryCapacity: {
+          title: "Battery Capacity (kWh)",
+          description: "The required battery storage capacity to provide the specified days of autonomy. This ensures you have power during cloudy periods or at night.",
+        },
+        dailyProduction: {
+          title: "Estimated Daily Production (kWh)",
+          description: "The expected average daily energy production from your solar system, accounting for sunshine hours and system losses.",
+        },
+        monthlyProduction: {
+          title: "Estimated Monthly Production (kWh)",
+          description: "The projected monthly energy production from your solar system. Compare this with your monthly consumption to ensure adequate coverage.",
+        },
+      },
+      importantNotes: {
+        title: "Important Notes",
+        notes: [
+          "These calculations provide estimates only. Actual performance may vary based on installation quality, local weather patterns, and system maintenance.",
+          "Always consult with a certified solar installer for a professional assessment and system design tailored to your specific situation.",
+          "Local regulations, building codes, and utility interconnection requirements may affect your final system design and installation.",
+        ],
+      },
+      needHelp: {
+        title: "Need Help?",
+        description: "If you have questions or need assistance with the calculator, please visit our",
+        contactLink: "Contact Page",
+        descriptionEnd: "to get in touch with our team.",
+      },
+    },
+    contact: {
+      backToHome: "Back to Home",
+      title: "Contact Us",
+      subtitle: "Have questions about solar energy or our calculator? Get in touch with us!",
+      form: {
+        title: "Send us a Message",
+        name: "Name",
+        namePlaceholder: "Your name",
+        email: "Email",
+        emailPlaceholder: "your.email@example.com",
+        subject: "Subject",
+        subjectPlaceholder: "How can we help?",
+        message: "Message",
+        messagePlaceholder: "Your message...",
+        sendButton: "Send Message",
+        successMessage: "Message sent successfully! We'll get back to you soon.",
+      },
+      info: {
+        email: "Email",
+        phone: "Phone",
+        office: "Office",
+        officeAddress: {
+          street: "123 Solar Street",
+          city: "Green City, CA 90210",
+          country: "United States",
+        },
+        businessHours: "Business Hours",
+        hours: {
+          weekdays: "Monday - Friday:",
+          weekdaysTime: "9:00 AM - 6:00 PM",
+          saturday: "Saturday:",
+          saturdayTime: "10:00 AM - 4:00 PM",
+          sunday: "Sunday:",
+          sundayTime: "Closed",
+        },
+      },
+    },
+  },
+  es: {
+    nav: {
+      title: "Calculadora Solar",
+      documentation: "Documentación",
+      contact: "Contacto",
+    },
+    home: {
+      title: "Calculadora de Energía Solar",
+      subtitle: "Calcula el sistema fotovoltaico perfecto para tus necesidades energéticas",
+      startButton: "Comenzar Cálculo",
+    },
+    calculator: {
+      backToHome: "Volver al Inicio",
+      title: "Calculadora de Sistema Solar",
+      subtitle: "Ingresa tus datos para calcular los requisitos de tu sistema fotovoltaico",
+      form: {
+        monthlyConsumption: "Consumo Mensual (kWh)",
+        monthlyConsumptionPlaceholder: "ej., 300",
+        sunshineHours: "Horas Diarias de Sol",
+        sunshineHoursPlaceholder: "ej., 5.5",
+        location: "Ubicación",
+        locationPlaceholder: "ej., Madrid, España",
+        moduleCapacity: "Capacidad del Módulo Solar (W)",
+        moduleCapacityPlaceholder: "ej., 400",
+        losses: "Pérdidas del Sistema (%)",
+        lossesPlaceholder: "ej., 15",
+        batteryAutonomy: "Autonomía de Batería (días)",
+        batteryAutonomyPlaceholder: "ej., 2",
+        calculateButton: "Calcular Sistema",
+      },
+      results: {
+        title: "Resultados del Cálculo",
+        systemSize: "Tamaño del Sistema",
+        numberOfPanels: "Número de Paneles",
+        batteryCapacity: "Capacidad de Batería",
+        dailyProduction: "Producción Diaria Estimada",
+        monthlyProduction: "Producción Mensual Estimada",
+        note: "Nota:",
+        noteText: "Estos cálculos son estimaciones basadas en la información proporcionada. Para un diseño preciso del sistema, consulte con un instalador solar certificado.",
+      },
+    },
+    documentation: {
+      backToHome: "Volver al Inicio",
+      title: "Documentación",
+      subtitle: "Aprende a usar la Calculadora Solar y comprende los cálculos",
+      gettingStarted: {
+        title: "Comenzando",
+        description: "La Calculadora de Energía Solar te ayuda a determinar el tamaño óptimo del sistema fotovoltaico para tus necesidades energéticas. Simplemente ingresa tus datos de consumo e información de ubicación para recibir recomendaciones detalladas.",
+        steps: [
+          "Navega a la página de Calculadora",
+          "Completa todos los campos requeridos con tus datos",
+          'Haz clic en "Calcular Sistema" para ver los resultados',
+          "Revisa las especificaciones del sistema recomendado",
+        ],
+      },
+      inputParameters: {
+        title: "Parámetros de Entrada",
+        monthlyConsumption: {
+          title: "Consumo Mensual (kWh)",
+          description: "Tu consumo promedio mensual de electricidad en kilovatios-hora. Puedes encontrar esto en tu factura de electricidad. Por ejemplo, un hogar típico podría usar 300-500 kWh por mes.",
+        },
+        sunshineHours: {
+          title: "Horas Diarias de Sol",
+          description: "El número promedio de horas pico de sol por día en tu ubicación. Esto varía según la ubicación geográfica y la estación. Puedes encontrar estos datos en bases de datos de radiación solar o servicios meteorológicos locales. Los valores típicos oscilan entre 3-7 horas.",
+        },
+        location: {
+          title: "Ubicación",
+          description: "Tu ubicación geográfica (ciudad, estado o país). Esto ayuda a contextualizar los resultados, aunque los cálculos se basan principalmente en las horas de sol que proporcionas.",
+        },
+        moduleCapacity: {
+          title: "Capacidad del Módulo Solar (W)",
+          description: "La potencia nominal de los paneles solares individuales que planeas usar, medida en vatios. Los paneles solares modernos típicamente van de 300W a 450W. Los paneles de mayor potencia significan menos paneles necesarios para el mismo tamaño de sistema.",
+        },
+        losses: {
+          title: "Pérdidas del Sistema (%)",
+          description: "La pérdida de energía esperada debido a factores como la eficiencia del inversor, cableado, sombra, polvo y temperatura. Un valor típico es 15-25%. Los sistemas de mayor calidad y condiciones óptimas resultan en menores pérdidas.",
+        },
+        batteryAutonomy: {
+          title: "Autonomía de Batería (días)",
+          description: "El número de días que tu sistema de baterías debe alimentar tu hogar sin luz solar. Los valores típicos son 1-3 días. Una mayor autonomía proporciona más energía de respaldo pero requiere bancos de baterías más grandes y costosos.",
+        },
+      },
+      understandingResults: {
+        title: "Entendiendo los Resultados",
+        systemSize: {
+          title: "Tamaño del Sistema (kW)",
+          description: "La capacidad total de tu sistema de paneles solares en kilovatios. Esto se calcula multiplicando el número de paneles por la capacidad individual del panel.",
+        },
+        numberOfPanels: {
+          title: "Número de Paneles",
+          description: "El número recomendado de paneles solares necesarios para satisfacer tus requisitos energéticos, teniendo en cuenta las horas de sol y las pérdidas del sistema.",
+        },
+        batteryCapacity: {
+          title: "Capacidad de Batería (kWh)",
+          description: "La capacidad de almacenamiento de batería requerida para proporcionar los días especificados de autonomía. Esto asegura que tengas energía durante períodos nublados o por la noche.",
+        },
+        dailyProduction: {
+          title: "Producción Diaria Estimada (kWh)",
+          description: "La producción promedio diaria esperada de energía de tu sistema solar, teniendo en cuenta las horas de sol y las pérdidas del sistema.",
+        },
+        monthlyProduction: {
+          title: "Producción Mensual Estimada (kWh)",
+          description: "La producción mensual proyectada de energía de tu sistema solar. Compara esto con tu consumo mensual para asegurar una cobertura adecuada.",
+        },
+      },
+      importantNotes: {
+        title: "Notas Importantes",
+        notes: [
+          "Estos cálculos proporcionan solo estimaciones. El rendimiento real puede variar según la calidad de instalación, patrones climáticos locales y mantenimiento del sistema.",
+          "Siempre consulta con un instalador solar certificado para una evaluación profesional y diseño de sistema adaptado a tu situación específica.",
+          "Las regulaciones locales, códigos de construcción y requisitos de interconexión de servicios públicos pueden afectar tu diseño final del sistema e instalación.",
+        ],
+      },
+      needHelp: {
+        title: "¿Necesitas Ayuda?",
+        description: "Si tienes preguntas o necesitas asistencia con la calculadora, visita nuestra",
+        contactLink: "Página de Contacto",
+        descriptionEnd: "para ponerte en contacto con nuestro equipo.",
+      },
+    },
+    contact: {
+      backToHome: "Volver al Inicio",
+      title: "Contáctanos",
+      subtitle: "¿Tienes preguntas sobre energía solar o nuestra calculadora? ¡Ponte en contacto con nosotros!",
+      form: {
+        title: "Envíanos un Mensaje",
+        name: "Nombre",
+        namePlaceholder: "Tu nombre",
+        email: "Correo Electrónico",
+        emailPlaceholder: "tu.correo@ejemplo.com",
+        subject: "Asunto",
+        subjectPlaceholder: "¿Cómo podemos ayudarte?",
+        message: "Mensaje",
+        messagePlaceholder: "Tu mensaje...",
+        sendButton: "Enviar Mensaje",
+        successMessage: "¡Mensaje enviado exitosamente! Te responderemos pronto.",
+      },
+      info: {
+        email: "Correo Electrónico",
+        phone: "Teléfono",
+        office: "Oficina",
+        officeAddress: {
+          street: "123 Calle Solar",
+          city: "Ciudad Verde, CA 90210",
+          country: "Estados Unidos",
+        },
+        businessHours: "Horario de Atención",
+        hours: {
+          weekdays: "Lunes - Viernes:",
+          weekdaysTime: "9:00 AM - 6:00 PM",
+          saturday: "Sábado:",
+          saturdayTime: "10:00 AM - 4:00 PM",
+          sunday: "Domingo:",
+          sundayTime: "Cerrado",
+        },
+      },
+    },
+  },
+};

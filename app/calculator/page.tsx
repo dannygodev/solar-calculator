@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "../context/LanguageContext";
+import LanguageSelector from "../components/LanguageSelector";
 
 export default function Calculator() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     monthlyConsumption: "",
     sunshineHours: "",
@@ -61,21 +64,22 @@ export default function Calculator() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              Solar Calculator
+              {t.nav.title}
             </Link>
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               <Link
                 href="/documentation"
                 className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
               >
-                Documentation
+                {t.nav.documentation}
               </Link>
               <Link
                 href="/contact"
                 className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
               >
-                Contact
+                {t.nav.contact}
               </Link>
+              <LanguageSelector />
             </div>
           </div>
         </div>
@@ -98,15 +102,15 @@ export default function Calculator() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          Back to Home
+          {t.calculator.backToHome}
         </Link>
 
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-            Solar System Calculator
+            {t.calculator.title}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 text-center">
-            Enter your details to calculate your photovoltaic system requirements
+            {t.calculator.subtitle}
           </p>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-8">
@@ -117,7 +121,7 @@ export default function Calculator() {
                     htmlFor="monthlyConsumption"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Monthly Consumption (kWh)
+                    {t.calculator.form.monthlyConsumption}
                   </label>
                   <input
                     type="number"
@@ -128,7 +132,7 @@ export default function Calculator() {
                     required
                     step="0.01"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="e.g., 300"
+                    placeholder={t.calculator.form.monthlyConsumptionPlaceholder}
                   />
                 </div>
 
@@ -137,7 +141,7 @@ export default function Calculator() {
                     htmlFor="sunshineHours"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Daily Sunshine Hours
+                    {t.calculator.form.sunshineHours}
                   </label>
                   <input
                     type="number"
@@ -148,7 +152,7 @@ export default function Calculator() {
                     required
                     step="0.1"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="e.g., 5.5"
+                    placeholder={t.calculator.form.sunshineHoursPlaceholder}
                   />
                 </div>
 
@@ -157,7 +161,7 @@ export default function Calculator() {
                     htmlFor="location"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Location
+                    {t.calculator.form.location}
                   </label>
                   <input
                     type="text"
@@ -167,7 +171,7 @@ export default function Calculator() {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="e.g., California, USA"
+                    placeholder={t.calculator.form.locationPlaceholder}
                   />
                 </div>
 
@@ -176,7 +180,7 @@ export default function Calculator() {
                     htmlFor="moduleCapacity"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Solar Module Capacity (W)
+                    {t.calculator.form.moduleCapacity}
                   </label>
                   <input
                     type="number"
@@ -187,7 +191,7 @@ export default function Calculator() {
                     required
                     step="1"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="e.g., 400"
+                    placeholder={t.calculator.form.moduleCapacityPlaceholder}
                   />
                 </div>
 
@@ -196,7 +200,7 @@ export default function Calculator() {
                     htmlFor="losses"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    System Losses (%)
+                    {t.calculator.form.losses}
                   </label>
                   <input
                     type="number"
@@ -207,7 +211,7 @@ export default function Calculator() {
                     required
                     step="0.1"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="e.g., 15"
+                    placeholder={t.calculator.form.lossesPlaceholder}
                   />
                 </div>
 
@@ -216,7 +220,7 @@ export default function Calculator() {
                     htmlFor="batteryAutonomy"
                     className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Battery Autonomy (days)
+                    {t.calculator.form.batteryAutonomy}
                   </label>
                   <input
                     type="number"
@@ -227,7 +231,7 @@ export default function Calculator() {
                     required
                     step="0.1"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder="e.g., 2"
+                    placeholder={t.calculator.form.batteryAutonomyPlaceholder}
                   />
                 </div>
               </div>
@@ -236,7 +240,7 @@ export default function Calculator() {
                 type="submit"
                 className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-emerald-500/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
               >
-                Calculate System
+                {t.calculator.form.calculateButton}
               </button>
             </form>
           </div>
@@ -244,12 +248,12 @@ export default function Calculator() {
           {result && (
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Calculation Results
+                {t.calculator.results.title}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    System Size
+                    {t.calculator.results.systemSize}
                   </p>
                   <p className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
                     {result.systemSize} kW
@@ -258,7 +262,7 @@ export default function Calculator() {
 
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    Number of Panels
+                    {t.calculator.results.numberOfPanels}
                   </p>
                   <p className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">
                     {result.numberOfPanels}
@@ -267,7 +271,7 @@ export default function Calculator() {
 
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    Battery Capacity
+                    {t.calculator.results.batteryCapacity}
                   </p>
                   <p className="text-3xl font-bold text-purple-600 dark:text-purple-400">
                     {result.batteryCapacity} kWh
@@ -276,7 +280,7 @@ export default function Calculator() {
 
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    Estimated Daily Production
+                    {t.calculator.results.dailyProduction}
                   </p>
                   <p className="text-3xl font-bold text-green-600 dark:text-green-400">
                     {result.estimatedDailyProduction} kWh
@@ -285,7 +289,7 @@ export default function Calculator() {
 
                 <div className="bg-gradient-to-br from-lime-50 to-green-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    Estimated Monthly Production
+                    {t.calculator.results.monthlyProduction}
                   </p>
                   <p className="text-3xl font-bold text-lime-600 dark:text-lime-400">
                     {result.estimatedMonthlyProduction} kWh
@@ -295,9 +299,7 @@ export default function Calculator() {
 
               <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                  <strong>Note:</strong> These calculations are estimates based on the
-                  information provided. For a precise system design, please consult with a
-                  certified solar installer.
+                  <strong>{t.calculator.results.note}</strong> {t.calculator.results.noteText}
                 </p>
               </div>
             </div>

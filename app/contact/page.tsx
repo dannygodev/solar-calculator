@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import LanguageSelector from "../components/LanguageSelector";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,21 +46,22 @@ export default function Contact() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              Solar Calculator
+              {t.nav.title}
             </Link>
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               <Link
                 href="/documentation"
                 className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
               >
-                Documentation
+                {t.nav.documentation}
               </Link>
               <Link
                 href="/contact"
                 className="text-blue-600 dark:text-blue-400 transition-colors font-medium"
               >
-                Contact
+                {t.nav.contact}
               </Link>
+              <LanguageSelector />
             </div>
           </div>
         </div>
@@ -81,20 +85,20 @@ export default function Contact() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          Back to Home
+          {t.contact.backToHome}
         </Link>
 
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          Contact Us
+          {t.contact.title}
         </h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-12">
-          Have questions about solar energy or our calculator? Get in touch with us!
+          {t.contact.subtitle}
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Send us a Message
+              {t.contact.form.title}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -102,7 +106,7 @@ export default function Contact() {
                   htmlFor="name"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Name
+                  {t.contact.form.name}
                 </label>
                 <input
                   type="text"
@@ -112,7 +116,7 @@ export default function Contact() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                  placeholder="Your name"
+                  placeholder={t.contact.form.namePlaceholder}
                 />
               </div>
 
@@ -121,7 +125,7 @@ export default function Contact() {
                   htmlFor="email"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Email
+                  {t.contact.form.email}
                 </label>
                 <input
                   type="email"
@@ -131,7 +135,7 @@ export default function Contact() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                  placeholder="your.email@example.com"
+                  placeholder={t.contact.form.emailPlaceholder}
                 />
               </div>
 
@@ -140,7 +144,7 @@ export default function Contact() {
                   htmlFor="subject"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Subject
+                  {t.contact.form.subject}
                 </label>
                 <input
                   type="text"
@@ -150,7 +154,7 @@ export default function Contact() {
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                  placeholder="How can we help?"
+                  placeholder={t.contact.form.subjectPlaceholder}
                 />
               </div>
 
@@ -159,7 +163,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Message
+                  {t.contact.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -169,14 +173,14 @@ export default function Contact() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white resize-none"
-                  placeholder="Your message..."
+                  placeholder={t.contact.form.messagePlaceholder}
                 />
               </div>
 
               {submitted && (
                 <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
                   <p className="text-green-800 dark:text-green-300 text-center font-medium">
-                    Message sent successfully! We&apos;ll get back to you soon.
+                    {t.contact.form.successMessage}
                   </p>
                 </div>
               )}
@@ -185,7 +189,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-emerald-500/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
               >
-                Send Message
+                {t.contact.form.sendButton}
               </button>
             </form>
           </div>
@@ -210,7 +214,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Email
+                    {t.contact.info.email}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
                     support@solarcalculator.com
@@ -238,7 +242,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Phone
+                    {t.contact.info.phone}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
                     +1 (555) 123-4567
@@ -272,14 +276,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Office
+                    {t.contact.info.office}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    123 Solar Street
+                    {t.contact.info.officeAddress.street}
                     <br />
-                    Green City, CA 90210
+                    {t.contact.info.officeAddress.city}
                     <br />
-                    United States
+                    {t.contact.info.officeAddress.country}
                   </p>
                 </div>
               </div>
@@ -287,20 +291,20 @@ export default function Contact() {
 
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-8 border border-emerald-200 dark:border-emerald-800">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                Business Hours
+                {t.contact.info.businessHours}
               </h3>
               <div className="space-y-2 text-gray-700 dark:text-gray-300">
                 <p className="flex justify-between">
-                  <span>Monday - Friday:</span>
-                  <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                  <span>{t.contact.info.hours.weekdays}</span>
+                  <span className="font-semibold">{t.contact.info.hours.weekdaysTime}</span>
                 </p>
                 <p className="flex justify-between">
-                  <span>Saturday:</span>
-                  <span className="font-semibold">10:00 AM - 4:00 PM</span>
+                  <span>{t.contact.info.hours.saturday}</span>
+                  <span className="font-semibold">{t.contact.info.hours.saturdayTime}</span>
                 </p>
                 <p className="flex justify-between">
-                  <span>Sunday:</span>
-                  <span className="font-semibold">Closed</span>
+                  <span>{t.contact.info.hours.sunday}</span>
+                  <span className="font-semibold">{t.contact.info.hours.sundayTime}</span>
                 </p>
               </div>
             </div>
