@@ -2,36 +2,13 @@
 
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
-import LanguageSelector from "../components/LanguageSelector";
+import Navigation from "../components/Navigation";
 
 export default function Documentation() {
   const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-800/80 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              {t.nav.title}
-            </Link>
-            <div className="flex items-center gap-6">
-              <Link
-                href="/documentation"
-                className="text-blue-600 dark:text-blue-400 transition-colors font-medium"
-              >
-                {t.nav.documentation}
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
-              >
-                {t.nav.contact}
-              </Link>
-              <LanguageSelector />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation currentPage="documentation" variant="dark" />
 
       <main className="container mx-auto px-4 py-12 max-w-5xl">
         <Link

@@ -3,14 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
-import LanguageSelector from "../components/LanguageSelector";
+import Navigation from "../components/Navigation";
 
 export default function Calculator() {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
     monthlyConsumption: "",
     sunshineHours: "",
-    location: "",
     moduleCapacity: "",
     losses: "",
     batteryAutonomy: "",
@@ -41,6 +40,17 @@ export default function Calculator() {
     const losses = parseFloat(formData.losses) / 100;
     const batteryAutonomy = parseFloat(formData.batteryAutonomy);
 
+    if (
+      isNaN(monthlyConsumption) ||
+      isNaN(sunshineHours) ||
+      isNaN(moduleCapacity) ||
+      isNaN(losses) ||
+      isNaN(batteryAutonomy)
+    ) {
+      alert("Please fill in all fields with valid numbers.");
+      return;
+    }
+
     const dailyConsumption = monthlyConsumption / 30;
     const energyPerPanel = (moduleCapacity * sunshineHours * (1 - losses)) / 1000;
     const numberOfPanels = Math.ceil(dailyConsumption / energyPerPanel);
@@ -60,30 +70,7 @@ export default function Calculator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-800/80 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              {t.nav.title}
-            </Link>
-            <div className="flex items-center gap-6">
-              <Link
-                href="/documentation"
-                className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
-              >
-                {t.nav.documentation}
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors font-medium"
-              >
-                {t.nav.contact}
-              </Link>
-              <LanguageSelector />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation currentPage="calculator" variant="dark" />
       <main className="container mx-auto px-4 py-8">
         <Link
           href="/"
@@ -153,25 +140,6 @@ export default function Calculator() {
                     step="0.1"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                     placeholder={t.calculator.form.sunshineHoursPlaceholder}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="location"
-                    className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    {t.calculator.form.location}
-                  </label>
-                  <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                    placeholder={t.calculator.form.locationPlaceholder}
                   />
                 </div>
 
