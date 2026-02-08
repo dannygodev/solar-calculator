@@ -45,116 +45,23 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
     : "text-emerald-600 dark:text-emerald-400";
 
   return (
-    <nav className={bgClass}>
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className={`text-2xl font-bold ${textClass}`}>
-            <span className="hidden md:inline">{t.nav.title}</span>
-            <span className="md:hidden">P&G</span>
-          </Link>
+    <>
+      <nav className={bgClass}>
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className={`text-2xl font-bold ${textClass}`}>
+              <span className="hidden md:inline">{t.nav.title}</span>
+              <span className="md:hidden">P&G</span>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 ml-auto">
-            {navLinks.map((link) => (
-              <Link
-                key={link.key}
-                href={link.href}
-                className={`${currentPage === link.key ? activeClass : linkClass} transition-colors font-medium`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            {isAdmin && (
-              <Link
-                href="/admin"
-                className={`${currentPage === "admin" ? activeClass : linkClass} transition-colors font-medium`}
-              >
-                Admin
-              </Link>
-            )}
-            {isAuthenticated ? (
-              <button
-                onClick={handleLogout}
-                className={`${linkClass} transition-colors font-medium`}
-              >
-                {t.nav.logout}
-              </button>
-            ) : (
-              <Link
-                href="/login"
-                className={`${currentPage === "login" ? activeClass : linkClass} transition-colors font-medium`}
-              >
-                {t.nav.login}
-              </Link>
-            )}
-            <LanguageSelector />
-          </div>
-
-          {/* Mobile Controls */}
-          <div className="md:hidden flex items-center gap-3">
-            <LanguageSelector />
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`${textClass} p-2 hover:bg-white/10 rounded-lg transition-colors`}
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {mobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {mobileMenuOpen && (
-          <div 
-            className="md:hidden fixed inset-0 bg-black/50"
-            style={{ zIndex: 45, top: '73px' }}
-            onClick={() => setMobileMenuOpen(false)}
-          />
-        )}
-        
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div 
-            className={`md:hidden fixed left-0 right-0 ${
-              isLightVariant ? 'bg-white/98' : 'bg-white dark:bg-gray-800'
-            } backdrop-blur-lg shadow-2xl max-h-[calc(100vh-73px)] overflow-y-auto border-t ${
-              isLightVariant ? 'border-white/20' : 'border-gray-200 dark:border-gray-700'
-            }`}
-            style={{ zIndex: 60, top: '73px' }}
-          >
-            <div className="py-4 px-4 space-y-2">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6 ml-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.key}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-4 px-5 rounded-xl text-base ${
-                    currentPage === link.key 
-                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
-                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
-                  } transition-all duration-200 font-medium touch-manipulation`}
+                  className={`${currentPage === link.key ? activeClass : linkClass} transition-colors font-medium`}
                 >
                   {link.label}
                 </Link>
@@ -162,45 +69,173 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
               {isAdmin && (
                 <Link
                   href="/admin"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-4 px-5 rounded-xl text-base ${
-                    currentPage === "admin"
-                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
-                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
-                  } transition-all duration-200 font-medium touch-manipulation`}
+                  className={`${currentPage === "admin" ? activeClass : linkClass} transition-colors font-medium`}
                 >
                   Admin
                 </Link>
               )}
               {isAuthenticated ? (
                 <button
-                  onClick={() => {
-                    handleLogout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`block w-full text-left py-4 px-5 rounded-xl text-base ${
-                    isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'
-                  } transition-all duration-200 font-medium touch-manipulation`}
+                  onClick={handleLogout}
+                  className={`${linkClass} transition-colors font-medium`}
                 >
                   {t.nav.logout}
                 </button>
               ) : (
                 <Link
                   href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-4 px-5 rounded-xl text-base ${
-                    currentPage === "login"
-                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
-                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
-                  } transition-all duration-200 font-medium touch-manipulation`}
+                  className={`${currentPage === "login" ? activeClass : linkClass} transition-colors font-medium`}
                 >
                   {t.nav.login}
                 </Link>
               )}
+              <LanguageSelector />
+            </div>
+
+            {/* Mobile Controls */}
+            <div className="md:hidden flex items-center gap-3">
+              <LanguageSelector />
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`${textClass} p-2.5 hover:bg-white/20 rounded-xl transition-all duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`}
+                aria-label="Toggle menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {mobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay - Portal style */}
+      {mobileMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-gradient-to-b from-black/60 to-black/80 backdrop-blur-sm z-[9998] animate-fadeIn"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+      
+      {/* Mobile Menu - Slide from right */}
+      <div 
+        className={`md:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm bg-gradient-to-br ${
+          isLightVariant 
+            ? 'from-white via-gray-50 to-gray-100' 
+            : 'from-white via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900'
+        } shadow-2xl z-[9999] transform transition-transform duration-300 ease-out ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {/* Menu Header */}
+        <div className={`p-6 border-b ${isLightVariant ? 'border-gray-200' : 'border-gray-200 dark:border-gray-700'}`}>
+          <div className="flex items-center justify-between">
+            <h2 className={`text-xl font-bold ${isLightVariant ? 'text-gray-900' : 'text-gray-900 dark:text-white'}`}>
+              Menu
+            </h2>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-2 rounded-xl ${isLightVariant ? 'hover:bg-gray-200 text-gray-700' : 'hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'} transition-colors`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Menu Items */}
+        <div className="overflow-y-auto h-[calc(100%-88px)] p-4">
+          <div className="space-y-1">
+            {navLinks.map((link, index) => (
+              <Link
+                key={link.key}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                  currentPage === link.key 
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 scale-[1.02]' 
+                    : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
+                }`}
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                  currentPage === link.key ? 'bg-white' : 'bg-emerald-500 group-hover:scale-150'
+                }`} />
+                {link.label}
+              </Link>
+            ))}
+            
+            {isAdmin && (
+              <Link
+                href="/admin"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                  currentPage === "admin"
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 scale-[1.02]' 
+                    : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
+                }`}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                  currentPage === "admin" ? 'bg-white' : 'bg-purple-500 group-hover:scale-150'
+                }`} />
+                Admin
+              </Link>
+            )}
+
+            <div className="my-4 border-t border-gray-200 dark:border-gray-700" />
+
+            {isAuthenticated ? (
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMobileMenuOpen(false);
+                }}
+                className={`group flex items-center gap-3 w-full text-left py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                  isLightVariant ? 'text-red-600 hover:bg-red-50 active:scale-95' : 'text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 active:scale-95'
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 group-hover:scale-150 transition-all" />
+                {t.nav.logout}
+              </button>
+            ) : (
+              <Link
+                href="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                  currentPage === "login"
+                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 scale-[1.02]' 
+                    : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
+                }`}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                  currentPage === "login" ? 'bg-white' : 'bg-blue-500 group-hover:scale-150'
+                }`} />
+                {t.nav.login}
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
