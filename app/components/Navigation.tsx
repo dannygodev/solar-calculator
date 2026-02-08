@@ -128,18 +128,21 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
         {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
           <div 
-            className="md:hidden fixed inset-0 bg-black/50 z-40 top-[73px]"
+            className="md:hidden fixed inset-0 bg-black/50 z-[45]"
+            style={{ top: '73px' }}
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
         
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className={`md:hidden fixed top-[73px] left-0 right-0 z-50 ${
+          <div className={`md:hidden fixed left-0 right-0 z-[60] ${
             isLightVariant ? 'bg-white/98' : 'bg-white dark:bg-gray-800'
           } backdrop-blur-lg shadow-2xl max-h-[calc(100vh-73px)] overflow-y-auto border-t ${
             isLightVariant ? 'border-white/20' : 'border-gray-200 dark:border-gray-700'
-          }`}>
+          }`}
+          style={{ top: '73px' }}
+          >
             <div className="py-4 px-4 space-y-2">
               {navLinks.map((link) => (
                 <Link
