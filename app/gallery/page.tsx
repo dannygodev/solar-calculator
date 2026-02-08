@@ -15,7 +15,7 @@ export default function Gallery() {
       <main className="container mx-auto px-4 py-12 max-w-7xl">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -48,7 +48,7 @@ export default function Gallery() {
               key={index}
               className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
             >
-              <div className="relative h-64 bg-gradient-to-br from-emerald-400 to-teal-500">
+              <div className="relative h-64 bg-gradient-to-br from-png-orange-light to-png-orange">
                 <Image
                   src="/solar-panels.jpg"
                   alt={project.title}
@@ -68,7 +68,7 @@ export default function Gallery() {
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
                   {project.description}
                 </p>
-                <button className="text-emerald-600 dark:text-emerald-400 font-semibold hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+                <button className="text-png-orange dark:text-png-orange-light font-semibold hover:text-emerald-700 dark:hover:text-png-orange-light transition-colors">
                   {t.gallery.viewDetails} →
                 </button>
               </div>
@@ -76,7 +76,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <section className="mt-16 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
+        <section className="mt-16 bg-gradient-to-r from-png-orange-dark to-png-orange rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {t.gallery.cta.title}
           </h2>
@@ -86,7 +86,7 @@ export default function Gallery() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/calculator"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-emerald-600 bg-white rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-png-orange bg-white rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
             >
               {t.gallery.cta.calculatorButton}
             </Link>

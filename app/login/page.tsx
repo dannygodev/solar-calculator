@@ -65,7 +65,7 @@ export default function Login() {
       <main className="container mx-auto px-4 py-12 max-w-md">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -161,7 +161,7 @@ export default function Login() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="w-full bg-gradient-to-r from-png-orange to-png-orange-light text-white px-8 py-4 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               {isLogin ? t.auth.login.loginButton : t.auth.signup.signupButton}
             </button>
@@ -172,7 +172,7 @@ export default function Login() {
               {isLogin ? t.auth.login.noAccount : t.auth.signup.hasAccount}{" "}
               <button
                 onClick={toggleMode}
-                className="text-emerald-600 dark:text-emerald-400 font-semibold hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+                className="text-png-orange dark:text-png-orange-light font-semibold hover:text-emerald-700 dark:hover:text-png-orange-light transition-colors"
               >
                 {isLogin ? t.auth.login.signupLink : t.auth.signup.loginLink}
               </button>

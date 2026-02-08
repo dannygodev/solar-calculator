@@ -14,7 +14,7 @@ export default function About() {
       <main className="container mx-auto px-4 py-12 max-w-6xl">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -59,9 +59,9 @@ export default function About() {
               {t.about.whyChooseUs.title}
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-xl border border-emerald-200 dark:border-emerald-800">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-xl border border-orange-200 dark:border-png-orange-dark">
                 <div className="flex items-start mb-4">
-                  <div className="bg-emerald-600 rounded-full p-3 mr-4">
+                  <div className="bg-png-orange rounded-full p-3 mr-4">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -173,7 +173,7 @@ export default function About() {
             </div>
           </section>
 
-          <section className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl shadow-2xl p-8 md:p-12 text-white">
+          <section className="bg-gradient-to-r from-png-orange-dark to-png-orange rounded-2xl shadow-2xl p-8 md:p-12 text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {t.about.commitment.title}
             </h2>
@@ -206,7 +206,7 @@ export default function About() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/calculator"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-lg hover:shadow-xl hover:shadow-emerald-500/50 transform hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-png-orange via-png-orange-light to-png-orange-dark rounded-lg hover:shadow-xl hover:shadow-png-orange/50 transform hover:scale-105 transition-all duration-300"
               >
                 {t.about.getStarted.calculatorButton}
               </Link>

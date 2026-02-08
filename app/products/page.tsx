@@ -147,7 +147,7 @@ export default function Products() {
       <main className="container mx-auto px-4 py-12 max-w-7xl">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -181,7 +181,7 @@ export default function Products() {
               key={product.id}
               className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
             >
-              <div className="relative h-56 bg-gradient-to-br from-emerald-400 to-teal-500">
+              <div className="relative h-56 bg-gradient-to-br from-png-orange-light to-png-orange">
                 <Image
                   src={product.image}
                   alt={language === "es" ? product.name : product.nameEn}
@@ -202,11 +202,11 @@ export default function Products() {
                   {language === "es" ? product.description : product.descriptionEn}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="text-2xl font-bold text-png-orange dark:text-png-orange-light">
                     {product.price}
                   </span>
                   {isAuthenticated ? (
-                    <button className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105">
+                    <button className="bg-gradient-to-r from-png-orange to-png-orange-light text-white px-6 py-2 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105">
                       {t.products.addToCart}
                     </button>
                   ) : (
@@ -224,7 +224,7 @@ export default function Products() {
         </div>
 
         {/* Call to Action */}
-        <section className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
+        <section className="bg-gradient-to-r from-png-orange-dark to-png-orange rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {language === "es" 
               ? "¿Necesitas una cotización personalizada?" 
@@ -238,7 +238,7 @@ export default function Products() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-emerald-600 bg-white rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-png-orange bg-white rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
             >
               {language === "es" ? "Contáctanos Ahora" : "Contact Us Now"}
             </Link>

@@ -74,7 +74,7 @@ export default function Calculator() {
       <main className="container mx-auto px-4 py-8">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -206,7 +206,7 @@ export default function Calculator() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-emerald-500/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
+                className="w-full bg-gradient-to-r from-png-orange via-png-orange-light to-png-orange-dark text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-png-orange/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
               >
                 {t.calculator.form.calculateButton}
               </button>
@@ -219,11 +219,11 @@ export default function Calculator() {
                 {t.calculator.results.title}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-600 p-6 rounded-xl shadow-md">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     {t.calculator.results.systemSize}
                   </p>
-                  <p className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
+                  <p className="text-3xl font-bold text-png-orange dark:text-png-orange-light">
                     {result.systemSize} kW
                   </p>
                 </div>

@@ -118,7 +118,7 @@ export default function AdminPanel() {
       <main className="container mx-auto px-4 py-12 max-w-7xl">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -145,7 +145,7 @@ export default function AdminPanel() {
           </p>
           <button
             onClick={handleAddNew}
-            className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-png-orange to-png-orange-light text-white px-6 py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105"
           >
             {t.admin.addProduct}
           </button>
@@ -270,7 +270,7 @@ export default function AdminPanel() {
             <div className="flex gap-4 mt-6">
               <button
                 onClick={handleSave}
-                className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300"
+                className="bg-gradient-to-r from-png-orange to-png-orange-light text-white px-8 py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300"
               >
                 {t.admin.saveProduct}
               </button>
@@ -302,7 +302,7 @@ export default function AdminPanel() {
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">{product.descriptionEn}</p>
                     <div className="mt-2 flex items-center gap-4 text-sm">
-                      <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                      <span className="text-png-orange dark:text-png-orange-light font-bold">
                         {product.price}
                       </span>
                       <span className="text-gray-500 dark:text-gray-400">

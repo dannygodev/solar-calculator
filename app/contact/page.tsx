@@ -47,7 +47,7 @@ export default function Contact() {
       <main className="container mx-auto px-4 py-12 max-w-4xl">
         <Link
           href="/"
-          className="inline-flex items-center text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300 mb-8 font-medium"
+          className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -164,7 +164,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-emerald-500/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
+                className="w-full bg-gradient-to-r from-png-orange via-png-orange-light to-png-orange-dark text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-png-orange/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
               >
                 {t.contact.form.sendButton}
               </button>
@@ -176,7 +176,7 @@ export default function Contact() {
               <div className="flex items-start mb-4">
                 <div className="bg-emerald-100 dark:bg-emerald-900/30 rounded-full p-3 mr-4">
                   <svg
-                    className="w-6 h-6 text-emerald-600 dark:text-emerald-400"
+                    className="w-6 h-6 text-png-orange dark:text-png-orange-light"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -266,7 +266,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-8 border border-emerald-200 dark:border-emerald-800">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-2xl shadow-lg p-8 border border-orange-200 dark:border-png-orange-dark">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                 {t.contact.info.businessHours}
               </h3>

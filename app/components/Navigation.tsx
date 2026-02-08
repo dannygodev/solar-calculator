@@ -38,11 +38,11 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
   
   const textClass = isLightVariant ? "text-white" : "text-gray-900 dark:text-white";
   const linkClass = isLightVariant 
-    ? "text-white hover:text-emerald-300" 
-    : "text-gray-700 hover:text-emerald-600 dark:text-gray-300 dark:hover:text-emerald-400";
+    ? "text-white hover:text-png-orange" 
+    : "text-gray-700 hover:text-png-orange dark:text-gray-300 dark:hover:text-png-orange-light";
   const activeClass = isLightVariant 
-    ? "text-emerald-300" 
-    : "text-emerald-600 dark:text-emerald-400";
+    ? "text-png-orange" 
+    : "text-png-orange dark:text-png-orange-light";
 
   return (
     <>
@@ -173,13 +173,13 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 onClick={() => setMobileMenuOpen(false)}
                 className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
                   currentPage === link.key 
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 scale-[1.02]' 
+                    ? 'bg-gradient-to-r from-png-orange to-png-orange-light text-white shadow-lg shadow-png-orange/30 scale-[1.02]' 
                     : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  currentPage === link.key ? 'bg-white' : 'bg-emerald-500 group-hover:scale-150'
+                  currentPage === link.key ? 'bg-white' : 'bg-png-orange group-hover:scale-150'
                 }`} />
                 {link.label}
               </Link>
@@ -191,12 +191,12 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 onClick={() => setMobileMenuOpen(false)}
                 className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
                   currentPage === "admin"
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 scale-[1.02]' 
+                    ? 'bg-gradient-to-r from-png-blue to-png-blue-light text-white shadow-lg shadow-png-blue/30 scale-[1.02]' 
                     : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
                 }`}
               >
                 <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  currentPage === "admin" ? 'bg-white' : 'bg-purple-500 group-hover:scale-150'
+                  currentPage === "admin" ? 'bg-white' : 'bg-png-blue group-hover:scale-150'
                 }`} />
                 Admin
               </Link>
@@ -223,12 +223,12 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 onClick={() => setMobileMenuOpen(false)}
                 className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
                   currentPage === "login"
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/30 scale-[1.02]' 
+                    ? 'bg-gradient-to-r from-png-orange to-png-orange-light text-white shadow-lg shadow-png-orange/30 scale-[1.02]' 
                     : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
                 }`}
               >
                 <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  currentPage === "login" ? 'bg-white' : 'bg-blue-500 group-hover:scale-150'
+                  currentPage === "login" ? 'bg-white' : 'bg-png-orange group-hover:scale-150'
                 }`} />
                 {t.nav.login}
               </Link>

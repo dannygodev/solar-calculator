@@ -16,7 +16,7 @@ export default function Home() {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-png-blue-dark/80 via-png-blue/70 to-png-blue-dark/80" />
       
       <Navigation currentPage="home" variant="light" />
 

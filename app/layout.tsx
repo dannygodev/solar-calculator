@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Solar Calculator",
-  description: "Calculate the perfect photovoltaic system for your energy needs",
+  title: "P&G Group - Soluciones Integrales",
+  description: "Soluciones integrales en energía solar fotovoltaica - P&G Group",
+  icons: {
+    icon: '/icon.jpg',
+    apple: '/icon.jpg',
+  },
 };
 
 export default function RootLayout({
