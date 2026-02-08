@@ -16,7 +16,7 @@ export default function Home() {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-png-blue-dark/80 via-png-blue/70 to-png-blue-dark/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-png-blue-dark/90 via-png-blue-dark/85 to-black/90" />
       
       <Navigation currentPage="home" variant="light" />
 
@@ -25,21 +25,21 @@ export default function Home() {
           <div className="text-center max-w-4xl">
             <div className="mb-8 flex justify-center">
               <Image
-                src="/icon.jpg"
-                alt="P&G Group Logo"
-                width={200}
-                height={200}
-                className="drop-shadow-2xl rounded-2xl"
+                src="/icon-blue.svg"
+                alt="P&G Logo"
+                width={180}
+                height={180}
+                className="drop-shadow-2xl"
                 priority
               />
             </div>
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 drop-shadow-2xl">
-              {t.home.companyName}
+            <h1 className="text-6xl md:text-8xl font-bold text-png-orange mb-8 drop-shadow-2xl">
+              P&G
             </h1>
-            <p className="text-2xl md:text-3xl text-white/90 mb-6 drop-shadow-lg font-light">
+            <p className="text-2xl md:text-3xl text-png-orange-light mb-6 drop-shadow-lg font-light">
               {t.home.tagline}
             </p>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto drop-shadow">
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow">
               {t.home.description}
             </p>
           </div>
