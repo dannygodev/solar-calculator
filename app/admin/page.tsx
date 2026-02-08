@@ -313,16 +313,16 @@ export default function AdminPanel() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2 ml-4">
                     <button
                       onClick={() => handleEdit(product)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+                      className="bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors whitespace-nowrap"
                     >
                       {t.admin.editProduct}
                     </button>
                     <button
                       onClick={() => handleDelete(product.id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition-colors"
+                      className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition-colors whitespace-nowrap"
                     >
                       {t.admin.deleteProduct}
                     </button>

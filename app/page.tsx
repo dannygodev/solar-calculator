@@ -23,6 +23,16 @@ export default function Home() {
       <main className="relative z-10 container mx-auto px-4 py-16">
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
           <div className="text-center max-w-4xl">
+            <div className="mb-8 flex justify-center">
+              <Image
+                src="/icon.jpg"
+                alt="P&G Group Logo"
+                width={200}
+                height={200}
+                className="drop-shadow-2xl rounded-2xl"
+                priority
+              />
+            </div>
             <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 drop-shadow-2xl">
               {t.home.companyName}
             </h1>
