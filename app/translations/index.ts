@@ -330,7 +330,7 @@ export const translations = {
       subtitle: "Liderando la revolución de energía renovable con soluciones solares innovadoras",
       mission: {
         title: "Nuestra Misión",
-        paragraph1: "En P&G Group, estamos comprometidos a transformar la forma en que el mundo aprovecha la energía. Nuestra misión es proporcionar soluciones de energía solar sostenibles, eficientes y asequibles que capaciten a hogares y empresas para reducir su huella de carbono mientras logran independencia energética.",
+        paragraph1: "En Grupo P&G, estamos comprometidos a transformar la forma en que el mundo aprovecha la energía. Nuestra misión es proporcionar soluciones de energía solar sostenibles, eficientes y asequibles que capaciten a hogares y empresas para reducir su huella de carbono mientras logran independencia energética.",
         paragraph2: "Creemos que la energía renovable no es solo el futuro, es el presente. A través de tecnología de vanguardia y servicio personalizado, hacemos que la energía solar sea accesible para todos.",
       },
       whyChooseUs: {

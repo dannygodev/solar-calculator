@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# P&G Group - Solar Energy Solutions
 
-## Getting Started
+A comprehensive solar energy calculator and product marketplace built with Next.js, featuring bilingual support (English/Spanish) and an admin panel for product management.
 
-First, run the development server:
+## 🌟 Features
+
+- **Solar Calculator** - Calculate optimal solar system size based on consumption
+- **Product Marketplace** - Browse and order SRNE solar products (panels, inverters, batteries, controllers)
+- **Admin Panel** - Manage product catalog with full CRUD operations
+- **Authentication System** - User login/signup with admin privileges
+- **Bilingual** - Full Spanish and English support
+- **Responsive Design** - Works on desktop, tablet, and mobile
+- **Project Gallery** - Showcase completed installations
+- **Contact Form** - Get in touch with the team
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Admin Access
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Email:** admin@pnggroup.com
+- **Password:** admin123
 
-## Learn More
+Access the admin panel at `/admin` after logging in.
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework:** Next.js 16
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State Management:** React Context API
+- **Storage:** localStorage (client-side)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Deployment
 
-## Deploy on Vercel
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Quick Deploy to Vercel:**
+1. Push to GitHub
+2. Import project on [vercel.com](https://vercel.com)
+3. Deploy with one click
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📂 Project Structure
+
+```
+app/
+├── about/          # About Us page
+├── admin/          # Admin panel for product management
+├── calculator/     # Solar calculator
+├── components/     # Reusable components
+├── contact/        # Contact page
+├── context/        # React Context (Auth, Language)
+├── documentation/  # Technical documentation
+├── gallery/        # Project gallery
+├── login/          # Authentication page
+├── products/       # Product marketplace
+└── translations/   # i18n translations
+```
+
+## 🔧 Configuration
+
+No environment variables required. All data is stored client-side using localStorage.
+
+## 📝 License
+
+Private project for P&G Group.
+
+## 🤝 Support
+
+For questions or support, visit the Contact page or reach out to the development team.
