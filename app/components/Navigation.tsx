@@ -128,20 +128,21 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
         {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
           <div 
-            className="md:hidden fixed inset-0 bg-black/50 z-[45]"
-            style={{ top: '73px' }}
+            className="md:hidden fixed inset-0 bg-black/50"
+            style={{ zIndex: 45, top: '73px' }}
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
         
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className={`md:hidden fixed left-0 right-0 z-[60] ${
-            isLightVariant ? 'bg-white/98' : 'bg-white dark:bg-gray-800'
-          } backdrop-blur-lg shadow-2xl max-h-[calc(100vh-73px)] overflow-y-auto border-t ${
-            isLightVariant ? 'border-white/20' : 'border-gray-200 dark:border-gray-700'
-          }`}
-          style={{ top: '73px' }}
+          <div 
+            className={`md:hidden fixed left-0 right-0 ${
+              isLightVariant ? 'bg-white/98' : 'bg-white dark:bg-gray-800'
+            } backdrop-blur-lg shadow-2xl max-h-[calc(100vh-73px)] overflow-y-auto border-t ${
+              isLightVariant ? 'border-white/20' : 'border-gray-200 dark:border-gray-700'
+            }`}
+            style={{ zIndex: 60, top: '73px' }}
           >
             <div className="py-4 px-4 space-y-2">
               {navLinks.map((link) => (
@@ -153,7 +154,7 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                     currentPage === link.key 
                       ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
                       : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
-                  } transition-all duration-200 font-medium`}
+                  } transition-all duration-200 font-medium touch-manipulation`}
                 >
                   {link.label}
                 </Link>
@@ -166,7 +167,7 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                     currentPage === "admin"
                       ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
                       : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
-                  } transition-all duration-200 font-medium`}
+                  } transition-all duration-200 font-medium touch-manipulation`}
                 >
                   Admin
                 </Link>
@@ -179,7 +180,7 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                   }}
                   className={`block w-full text-left py-4 px-5 rounded-xl text-base ${
                     isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'
-                  } transition-all duration-200 font-medium`}
+                  } transition-all duration-200 font-medium touch-manipulation`}
                 >
                   {t.nav.logout}
                 </button>
@@ -191,7 +192,7 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                     currentPage === "login"
                       ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
                       : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
-                  } transition-all duration-200 font-medium`}
+                  } transition-all duration-200 font-medium touch-manipulation`}
                 >
                   {t.nav.login}
                 </Link>
