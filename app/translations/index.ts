@@ -295,6 +295,7 @@ export const translations = {
           city: "Green City, CA 90210",
           country: "United States",
         },
+        socialMedia: "Social Media",
         businessHours: "Business Hours",
         hours: {
           weekdays: "Monday - Friday:",
@@ -603,6 +604,7 @@ export const translations = {
           city: "Ciudad Verde, CA 90210",
           country: "Estados Unidos",
         },
+        socialMedia: "Redes Sociales",
         businessHours: "Horario de Atención",
         hours: {
           weekdays: "Lunes - Viernes:",
