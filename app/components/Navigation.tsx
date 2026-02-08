@@ -48,9 +48,10 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
     <nav className={bgClass}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo - Hidden on mobile */}
-          <Link href="/" className={`text-2xl font-bold ${textClass} hidden md:block`}>
-            {t.nav.title}
+          {/* Logo */}
+          <Link href="/" className={`text-2xl font-bold ${textClass}`}>
+            <span className="hidden md:inline">{t.nav.title}</span>
+            <span className="md:hidden">P&G</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -90,46 +91,44 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
             <LanguageSelector />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden ${textClass} p-2`}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-
-          {/* Mobile Language Selector */}
-          <div className="md:hidden ml-auto mr-2">
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-3">
             <LanguageSelector />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`${textClass} p-2 hover:bg-white/10 rounded-lg transition-colors`}
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
           <div 
-            className="md:hidden fixed inset-0 bg-black/50 z-40"
+            className="md:hidden fixed inset-0 bg-black/50 z-40 top-[73px]"
             onClick={() => setMobileMenuOpen(false)}
           />
         )}
@@ -137,19 +136,21 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className={`md:hidden fixed top-[73px] left-0 right-0 z-50 ${
-            isLightVariant ? 'bg-white/95' : 'bg-white dark:bg-gray-800'
-          } backdrop-blur-md shadow-lg max-h-[60vh] overflow-y-auto`}>
-            <div className="py-2 px-4 space-y-1">
+            isLightVariant ? 'bg-white/98' : 'bg-white dark:bg-gray-800'
+          } backdrop-blur-lg shadow-2xl max-h-[calc(100vh-73px)] overflow-y-auto border-t ${
+            isLightVariant ? 'border-white/20' : 'border-gray-200 dark:border-gray-700'
+          }`}>
+            <div className="py-4 px-4 space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.key}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-3 px-4 rounded-lg ${
+                  className={`block py-4 px-5 rounded-xl text-base ${
                     currentPage === link.key 
-                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20'}` 
-                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'}`
-                  } transition-colors font-medium`}
+                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
+                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
+                  } transition-all duration-200 font-medium`}
                 >
                   {link.label}
                 </Link>
@@ -158,11 +159,11 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 <Link
                   href="/admin"
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-3 px-4 rounded-lg ${
+                  className={`block py-4 px-5 rounded-xl text-base ${
                     currentPage === "admin"
-                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20'}` 
-                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'}`
-                  } transition-colors font-medium`}
+                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
+                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
+                  } transition-all duration-200 font-medium`}
                 >
                   Admin
                 </Link>
@@ -173,9 +174,9 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                     handleLogout();
                     setMobileMenuOpen(false);
                   }}
-                  className={`block w-full text-left py-3 px-4 rounded-lg ${
-                    isLightVariant ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
-                  } transition-colors font-medium`}
+                  className={`block w-full text-left py-4 px-5 rounded-xl text-base ${
+                    isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'
+                  } transition-all duration-200 font-medium`}
                 >
                   {t.nav.logout}
                 </button>
@@ -183,11 +184,11 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block py-3 px-4 rounded-lg ${
+                  className={`block py-4 px-5 rounded-xl text-base ${
                     currentPage === "login"
-                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20'}` 
-                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'}`
-                  } transition-colors font-medium`}
+                      ? `${isLightVariant ? 'text-emerald-600 bg-emerald-50 font-semibold' : 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 font-semibold'}` 
+                      : `${isLightVariant ? 'text-gray-800 hover:bg-gray-100 active:bg-gray-200' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600'}`
+                  } transition-all duration-200 font-medium`}
                 >
                   {t.nav.login}
                 </Link>
