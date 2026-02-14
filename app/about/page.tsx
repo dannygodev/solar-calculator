@@ -8,10 +8,10 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-light-gray">
       <Navigation currentPage="about" variant="dark" />
 
-      <main className="container mx-auto px-4 py-12 max-w-6xl">
+      <main className="container mx-auto px-4 py-12 md:py-20 max-w-6xl">
         <Link
           href="/"
           className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
@@ -32,36 +32,36 @@ export default function About() {
           {t.about.backToHome}
         </Link>
 
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-navy mb-6">
             {t.about.title}
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t.about.subtitle}
           </p>
         </div>
 
         <div className="space-y-8">
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          <section className="bg-white rounded-2xl p-8 md:p-12" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+            <h2 className="text-3xl font-bold text-primary-navy mb-6">
               {t.about.mission.title}
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-lg text-gray-600 leading-relaxed mb-4">
               {t.about.mission.paragraph1}
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               {t.about.mission.paragraph2}
             </p>
           </section>
 
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          <section className="bg-white rounded-2xl p-8 md:p-12" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+            <h2 className="text-3xl font-bold text-primary-navy mb-8 text-center">
               {t.about.whyChooseUs.title}
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-emerald-900/20 dark:to-teal-900/20 p-6 rounded-xl border border-orange-200 dark:border-png-orange-dark">
+              <div className="bg-light-gray p-6 rounded-xl border-2 border-transparent hover:border-accent-orange transition-all duration-300">
                 <div className="flex items-start mb-4">
-                  <div className="bg-png-orange rounded-full p-3 mr-4">
+                  <div className="bg-accent-orange rounded-full p-3 mr-4">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -77,19 +77,19 @@ export default function About() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-xl font-semibold text-primary-navy mb-2">
                       {t.about.whyChooseUs.expertInstallation.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300">
+                    <p className="text-gray-600">
                       {t.about.whyChooseUs.expertInstallation.description}
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 p-6 rounded-xl border border-cyan-200 dark:border-cyan-800">
+              <div className="bg-light-gray p-6 rounded-xl border-2 border-transparent hover:border-accent-orange transition-all duration-300">
                 <div className="flex items-start mb-4">
-                  <div className="bg-cyan-600 rounded-full p-3 mr-4">
+                  <div className="bg-accent-orange rounded-full p-3 mr-4">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -105,19 +105,19 @@ export default function About() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-xl font-semibold text-primary-navy mb-2">
                       {t.about.whyChooseUs.premiumTechnology.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300">
+                    <p className="text-gray-600">
                       {t.about.whyChooseUs.premiumTechnology.description}
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+              <div className="bg-light-gray p-6 rounded-xl border-2 border-transparent hover:border-accent-orange transition-all duration-300">
                 <div className="flex items-start mb-4">
-                  <div className="bg-purple-600 rounded-full p-3 mr-4">
+                  <div className="bg-accent-orange rounded-full p-3 mr-4">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -133,19 +133,19 @@ export default function About() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-xl font-semibold text-primary-navy mb-2">
                       {t.about.whyChooseUs.costEffective.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300">
+                    <p className="text-gray-600">
                       {t.about.whyChooseUs.costEffective.description}
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 p-6 rounded-xl border border-orange-200 dark:border-orange-800">
+              <div className="bg-light-gray p-6 rounded-xl border-2 border-transparent hover:border-accent-orange transition-all duration-300">
                 <div className="flex items-start mb-4">
-                  <div className="bg-orange-600 rounded-full p-3 mr-4">
+                  <div className="bg-accent-orange rounded-full p-3 mr-4">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="none"
@@ -161,10 +161,10 @@ export default function About() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-xl font-semibold text-primary-navy mb-2">
                       {t.about.whyChooseUs.support.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300">
+                    <p className="text-gray-600">
                       {t.about.whyChooseUs.support.description}
                     </p>
                   </div>
@@ -173,11 +173,11 @@ export default function About() {
             </div>
           </section>
 
-          <section className="bg-gradient-to-r from-png-orange-dark to-png-orange rounded-2xl shadow-2xl p-8 md:p-12 text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <section className="bg-primary-navy rounded-2xl p-8 md:p-12 text-white" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
               {t.about.commitment.title}
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed mb-6 text-white/90">
+            <p className="text-lg md:text-xl leading-relaxed mb-6 text-white/90 text-center max-w-3xl mx-auto">
               {t.about.commitment.description}
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-8">
@@ -196,23 +196,23 @@ export default function About() {
             </div>
           </section>
 
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          <section className="bg-white rounded-2xl p-8 md:p-12 text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+            <h2 className="text-3xl font-bold text-primary-navy mb-6">
               {t.about.getStarted.title}
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               {t.about.getStarted.description}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/calculator"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-png-orange via-png-orange-light to-png-orange-dark rounded-lg hover:shadow-xl hover:shadow-png-orange/50 transform hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-accent-orange rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 {t.about.getStarted.calculatorButton}
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 dark:text-white bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-primary-navy bg-white border-2 border-primary-navy rounded-full hover:bg-light-gray transition-all duration-300"
               >
                 {t.about.getStarted.contactButton}
               </Link>

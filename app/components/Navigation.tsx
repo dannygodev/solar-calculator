@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
@@ -50,9 +51,17 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className={`text-2xl font-bold ${textClass}`}>
-              <span className="hidden md:inline">{t.nav.title}</span>
-              <span className="md:hidden">P&G</span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/icon.png"
+                alt="P&G Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-lg"
+              />
+              <span className={`text-2xl font-bold ${textClass} hidden md:inline`}>
+                P&G
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
