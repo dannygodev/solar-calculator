@@ -102,6 +102,7 @@ export default function FAQSection() {
                     alt={faqs[activeIndex].question}
                     fill
                     className="object-cover transition-opacity duration-500"
+                    quality={75}
                     onError={(e) => {
                       // Fallback to placeholder if image doesn't exist
                       const target = e.target as HTMLImageElement;

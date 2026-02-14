@@ -11,37 +11,59 @@ export default function Home() {
     <div className="min-h-screen bg-light-gray">
       <Navigation currentPage="home" variant="dark" />
       
-      {/* Hero Section - Clean Design */}
-      <section className="py-20 md:py-32">
+      {/* Hero Section - Split Screen Design */}
+      <section className="py-12 md:py-20 lg:py-32 bg-light-gray">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            {/* Hero Card */}
-            <div className="bg-white rounded-2xl p-8 md:p-12 text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-              <div className="mb-8">
+          <div className="max-w-7xl mx-auto">
+            {/* 2-Column Grid for Desktop */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Text Content */}
+              <div className="text-center lg:text-left space-y-6">
+                {/* Logo */}
+                <div className="mb-6">
+                  <Image
+                    src="/icon.png"
+                    alt="P&G Logo"
+                    width={100}
+                    height={100}
+                    className="mx-auto lg:mx-0 rounded-lg drop-shadow-lg"
+                    priority
+                    quality={75}
+                  />
+                </div>
+                
+                {/* Main Headline */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-navy leading-tight">
+                  Transforma el Sol en Ahorro
+                </h1>
+                
+                {/* Subheadline */}
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                  Liderando la revolución de energía renovable con soluciones solares innovadoras para Cuba.
+                </p>
+                
+                {/* CTA Button */}
+                <div className="pt-4">
+                  <Link
+                    href="/calculator"
+                    className="inline-block bg-accent-orange text-white font-bold text-lg px-10 py-5 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    Calcular Mi Sistema Solar
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Right Column: Image Content */}
+              <div className="relative h-64 md:h-96 lg:h-[500px]">
                 <Image
-                  src="/icon.png"
-                  alt="P&G Logo"
-                  width={120}
-                  height={120}
-                  className="mx-auto rounded-lg drop-shadow-lg"
+                  src="/hero-panel-transparent.png"
+                  alt="Solar Panel System"
+                  fill
+                  className="object-contain"
                   priority
+                  quality={75}
                 />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-primary-navy mb-4">
-                P&G Soluciones Integrales
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold text-accent-orange mb-6">
-                Transforma el Sol en Ahorro
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Liderando la revolución de energía renovable con soluciones solares innovadoras para Cuba.
-              </p>
-              <Link
-                href="/calculator"
-                className="inline-block bg-accent-orange text-white font-bold text-lg px-10 py-5 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Calcular Mi Sistema Solar
-              </Link>
             </div>
           </div>
         </div>
