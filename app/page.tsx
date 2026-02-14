@@ -11,47 +11,51 @@ export default function Home() {
       <Navigation currentPage="home" variant="dark" />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/solar-panels.jpg"
-            alt="Solar Panels"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Navy Blue Gradient Overlay */}
-          <div className="absolute inset-0 bg-primary-navy opacity-85"></div>
-        </div>
-        
-        {/* Centered Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="mb-8">
-            <Image
-              src="/icon.png"
-              alt="P&G Logo"
-              width={150}
-              height={150}
-              className="drop-shadow-2xl rounded-lg mx-auto"
-              priority
-            />
+      <section className="bg-white py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="flex flex-col items-center md:items-start">
+              <div className="mb-6">
+                <Image
+                  src="/icon.png"
+                  alt="P&G Logo"
+                  width={180}
+                  height={180}
+                  className="drop-shadow-lg rounded-lg"
+                  priority
+                />
+              </div>
+              <h1 className="text-6xl md:text-7xl font-bold text-accent-orange mb-4">
+                P&G
+              </h1>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-navy mb-6">
+                Soluciones Integrales
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Transforma el Sol en Ahorro. Liderando la revolución de energía renovable con soluciones solares innovadoras.
+              </p>
+              <Link
+                href="/calculator"
+                className="inline-block bg-accent-orange text-white font-bold text-lg px-10 py-5 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Ir a la Calculadora
+              </Link>
+            </div>
+            
+            {/* Right: Image */}
+            <div className="hidden md:block">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/solar-panels2.png"
+                  alt="Solar Panels"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            P&G
-          </h1>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Soluciones Integrales
-          </h2>
-          <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto">
-            Transforma el Sol en Ahorro. Liderando la revolución de energía renovable con soluciones solares innovadoras.
-          </p>
-          <Link
-            href="/calculator"
-            className="inline-block bg-accent-orange text-white font-bold text-lg md:text-xl px-12 py-6 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105"
-          >
-            Ir a la Calculadora
-          </Link>
         </div>
       </section>
 
