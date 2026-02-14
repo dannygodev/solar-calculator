@@ -9,10 +9,10 @@ export default function Gallery() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-light-gray">
       <Navigation currentPage="gallery" variant="dark" />
 
-      <main className="container mx-auto px-4 py-12 max-w-7xl">
+      <main className="container mx-auto px-4 py-12 md:py-20 max-w-7xl">
         <Link
           href="/"
           className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
@@ -33,11 +33,11 @@ export default function Gallery() {
           {t.gallery.backToHome}
         </Link>
 
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-navy mb-6">
             {t.gallery.title}
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t.gallery.subtitle}
           </p>
         </div>
@@ -46,9 +46,10 @@ export default function Gallery() {
           {t.gallery.projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+              className="bg-white rounded-2xl overflow-hidden transform hover:scale-105 transition-all duration-300"
+              style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}
             >
-              <div className="relative h-64 bg-gradient-to-br from-png-orange-light to-png-orange">
+              <div className="relative h-64 bg-light-gray">
                 <Image
                   src="/solar-panels.jpg"
                   alt={project.title}
@@ -56,19 +57,19 @@ export default function Gallery() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 right-4">
-                  <span className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-900 dark:text-white">
+                  <span className="bg-accent-orange text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {project.category}
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-primary-navy mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-gray-600 mb-4">
                   {project.description}
                 </p>
-                <button className="text-png-orange dark:text-png-orange-light font-semibold hover:text-emerald-700 dark:hover:text-png-orange-light transition-colors">
+                <button className="text-accent-orange font-bold hover:text-orange-600 transition-colors">
                   {t.gallery.viewDetails} →
                 </button>
               </div>
@@ -76,7 +77,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <section className="mt-16 bg-gradient-to-r from-png-orange-dark to-png-orange rounded-2xl shadow-2xl p-8 md:p-12 text-white text-center">
+        <section className="mt-16 bg-primary-navy rounded-2xl p-8 md:p-12 text-white text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {t.gallery.cta.title}
           </h2>
@@ -86,13 +87,13 @@ export default function Gallery() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/calculator"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-png-orange bg-white rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-accent-orange rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg"
             >
               {t.gallery.cta.calculatorButton}
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/20 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/30 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-primary-navy bg-white rounded-full hover:bg-light-gray transition-all duration-300"
             >
               {t.gallery.cta.quoteButton}
             </Link>

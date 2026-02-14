@@ -18,11 +18,11 @@ export default function Home() {
             <div>
               <div className="mb-6">
                 <Image
-                  src="/icon-blue.svg"
+                  src="/icon.png"
                   alt="P&G Logo"
                   width={120}
                   height={120}
-                  className="drop-shadow-lg"
+                  className="drop-shadow-lg rounded-lg"
                   priority
                 />
               </div>

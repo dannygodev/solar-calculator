@@ -59,10 +59,10 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-light-gray">
       <Navigation currentPage="login" variant="dark" />
 
-      <main className="container mx-auto px-4 py-12 max-w-md">
+      <main className="container mx-auto px-4 py-12 md:py-20 max-w-md">
         <Link
           href="/"
           className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
@@ -83,12 +83,12 @@ export default function Login() {
           {t.products.backToHome}
         </Link>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
+        <div className="bg-white rounded-2xl p-8 md:p-10" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
           <div className="mb-8 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary-navy mb-3">
               {isLogin ? t.auth.login.title : t.auth.signup.title}
             </h1>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600">
               {isLogin ? t.auth.login.subtitle : t.auth.signup.subtitle}
             </p>
           </div>
@@ -104,7 +104,7 @@ export default function Login() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-primary-navy mb-2"
                 >
                   {t.auth.signup.name}
                 </label>
@@ -115,7 +115,7 @@ export default function Login() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required={!isLogin}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300"
                   placeholder={t.auth.signup.namePlaceholder}
                 />
               </div>
@@ -124,7 +124,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold text-primary-navy mb-2"
               >
                 {isLogin ? t.auth.login.email : t.auth.signup.email}
               </label>
@@ -135,7 +135,7 @@ export default function Login() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300"
                 placeholder={isLogin ? t.auth.login.emailPlaceholder : t.auth.signup.emailPlaceholder}
               />
             </div>
@@ -143,7 +143,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold text-primary-navy mb-2"
               >
                 {isLogin ? t.auth.login.password : t.auth.signup.password}
               </label>
@@ -154,25 +154,25 @@ export default function Login() {
                 value={formData.password}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300"
                 placeholder={isLogin ? t.auth.login.passwordPlaceholder : t.auth.signup.passwordPlaceholder}
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-png-orange to-png-orange-light text-white px-8 py-4 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="w-full bg-accent-orange text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               {isLogin ? t.auth.login.loginButton : t.auth.signup.signupButton}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600">
               {isLogin ? t.auth.login.noAccount : t.auth.signup.hasAccount}{" "}
               <button
                 onClick={toggleMode}
-                className="text-png-orange dark:text-png-orange-light font-semibold hover:text-emerald-700 dark:hover:text-png-orange-light transition-colors"
+                className="text-accent-orange font-bold hover:text-orange-600 transition-colors"
               >
                 {isLogin ? t.auth.login.signupLink : t.auth.signup.loginLink}
               </button>

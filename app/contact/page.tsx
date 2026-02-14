@@ -41,10 +41,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-light-gray">
       <Navigation currentPage="contact" variant="dark" />
 
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
+      <main className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
         <Link
           href="/"
           className="inline-flex items-center text-png-orange hover:text-png-orange-dark dark:text-png-orange-light dark:hover:text-png-orange-light mb-8 font-medium"
@@ -65,23 +65,25 @@ export default function Contact() {
           {t.contact.backToHome}
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          {t.contact.title}
-        </h1>
-        <p className="text-lg text-gray-700 dark:text-gray-300 mb-12">
-          {t.contact.subtitle}
-        </p>
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-navy mb-6">
+            {t.contact.title}
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {t.contact.subtitle}
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <div className="bg-white rounded-2xl p-8" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+            <h2 className="text-2xl font-bold text-primary-navy mb-6">
               {t.contact.form.title}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-primary-navy mb-2"
                 >
                   {t.contact.form.name}
                 </label>
@@ -92,7 +94,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300"
                   placeholder={t.contact.form.namePlaceholder}
                 />
               </div>
@@ -100,7 +102,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-primary-navy mb-2"
                 >
                   {t.contact.form.email}
                 </label>
@@ -111,7 +113,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300"
                   placeholder={t.contact.form.emailPlaceholder}
                 />
               </div>
@@ -119,7 +121,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-primary-navy mb-2"
                 >
                   {t.contact.form.subject}
                 </label>
@@ -130,7 +132,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300"
                   placeholder={t.contact.form.subjectPlaceholder}
                 />
               </div>
@@ -138,7 +140,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-semibold text-primary-navy mb-2"
                 >
                   {t.contact.form.message}
                 </label>
@@ -149,7 +151,7 @@ export default function Contact() {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white resize-none"
+                  className="w-full px-4 py-3 border-2 border-primary-navy rounded-lg focus:ring-2 focus:ring-accent-orange focus:border-accent-orange transition-all duration-300 resize-none"
                   placeholder={t.contact.form.messagePlaceholder}
                 />
               </div>
@@ -164,7 +166,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-png-orange via-png-orange-light to-png-orange-dark text-white font-semibold py-4 px-6 rounded-lg hover:shadow-xl hover:shadow-png-orange/50 transform hover:scale-[1.02] transition-all duration-300 hover:from-emerald-400 hover:via-teal-400 hover:to-cyan-400"
+                className="w-full bg-accent-orange text-white font-bold py-4 px-6 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 {t.contact.form.sendButton}
               </button>
@@ -172,11 +174,11 @@ export default function Contact() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <div className="bg-white rounded-2xl p-8" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
               <div className="flex items-start mb-4">
-                <div className="bg-emerald-100 dark:bg-emerald-900/30 rounded-full p-3 mr-4">
+                <div className="bg-accent-orange rounded-full p-3 mr-4">
                   <svg
-                    className="w-6 h-6 text-png-orange dark:text-png-orange-light"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -190,21 +192,21 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-lg font-semibold text-primary-navy mb-2">
                     {t.contact.info.email}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600">
                     hamilton@grupopg.com
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <div className="bg-white rounded-2xl p-8" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
               <div className="flex items-start mb-4">
-                <div className="bg-cyan-100 dark:bg-cyan-900/30 rounded-full p-3 mr-4">
+                <div className="bg-accent-orange rounded-full p-3 mr-4">
                   <svg
-                    className="w-6 h-6 text-cyan-600 dark:text-cyan-400"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -218,21 +220,21 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-lg font-semibold text-primary-navy mb-2">
                     {t.contact.info.phone}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600">
                     +53 63405387
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <div className="bg-white rounded-2xl p-8" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
               <div className="flex items-start mb-4">
-                <div className="bg-purple-100 dark:bg-purple-900/30 rounded-full p-3 mr-4">
+                <div className="bg-accent-orange rounded-full p-3 mr-4">
                   <svg
-                    className="w-6 h-6 text-purple-600 dark:text-purple-400"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -252,10 +254,10 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-lg font-semibold text-primary-navy mb-2">
                     {t.contact.info.office}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600">
                     Calle 23 y G #970, Vedado
                     <br />
                     La Habana, Cuba
@@ -264,8 +266,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <div className="bg-white rounded-2xl p-8" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+              <h3 className="text-lg font-semibold text-primary-navy mb-4">
                 {t.contact.info.socialMedia || "Social Media"}
               </h3>
               <div className="flex gap-4">
@@ -305,11 +307,11 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-png-blue-dark/20 dark:to-png-blue/20 rounded-2xl shadow-lg p-8 border border-orange-200 dark:border-png-orange-dark">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+            <div className="bg-light-gray rounded-2xl p-8 border-2 border-accent-orange">
+              <h3 className="text-lg font-semibold text-primary-navy mb-3">
                 {t.contact.info.businessHours}
               </h3>
-              <div className="space-y-2 text-gray-700 dark:text-gray-300">
+              <div className="space-y-2 text-gray-600">
                 <p className="flex justify-between">
                   <span>{t.contact.info.hours.weekdays}</span>
                   <span className="font-semibold">{t.contact.info.hours.weekdaysTime}</span>
