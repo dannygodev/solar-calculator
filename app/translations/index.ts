@@ -269,6 +269,16 @@ export const translations = {
         descriptionEnd: "to get in touch with our team.",
       },
     },
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Everything you need to know about solar systems",
+      q1: "Do panels work when it's cloudy?",
+      a1: "Yes, modern panels capture diffuse radiation. Although production drops by 10-20%, they continue generating energy.",
+      q2: "What happens if the power goes out?",
+      a2: "If you have batteries, the system acts as automatic backup. If it's a grid-tie only system, it shuts down for safety.",
+      q3: "How long does the equipment last?",
+      a3: "Panels have a lifespan of 25-30 years. Inverters last 10-15 years and Lithium batteries 10 years (6000 cycles).",
+    },
     contact: {
       backToHome: "Back to Home",
       title: "Contact Us",
@@ -577,6 +587,16 @@ export const translations = {
         contactLink: "Página de Contacto",
         descriptionEnd: "para ponerte en contacto con nuestro equipo.",
       },
+    },
+    faq: {
+      title: "Preguntas Frecuentes",
+      subtitle: "Todo lo que necesitas saber sobre sistemas solares",
+      q1: "¿Funcionan los paneles si está nublado?",
+      a1: "Sí, los paneles modernos captan radiación difusa. Aunque la producción baja un 10-20%, siguen generando energía.",
+      q2: "¿Qué pasa si se va la luz?",
+      a2: "Si tienes baterías, el sistema actúa como respaldo automático. Si es un sistema solo de red (Grid-Tie), se apaga por seguridad.",
+      q3: "¿Cuánto duran los equipos?",
+      a3: "Los paneles tienen una vida útil de 25-30 años. Los inversores 10-15 años y las baterías de Litio 10 años (6000 ciclos).",
     },
     contact: {
       backToHome: "Volver al Inicio",

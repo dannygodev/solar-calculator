@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "./components/Navigation";
+import FAQSection from "./components/FAQSection";
 
 export default function Home() {
 
@@ -10,35 +11,39 @@ export default function Home() {
     <div className="min-h-screen bg-light-gray">
       <Navigation currentPage="home" variant="dark" />
       
-      {/* Hero Section - Full Width Background */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/solar-panels2.png"
-            alt="Solar Panels Background"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Navy Blue Overlay - 85% opacity */}
-          <div className="absolute inset-0 bg-primary-navy opacity-85"></div>
-        </div>
-        
-        {/* Centered Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Transforma el Sol en Ahorro
-          </h1>
-          <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto">
-            Liderando la revolución de energía renovable con soluciones solares innovadoras para Cuba.
-          </p>
-          <Link
-            href="/calculator"
-            className="inline-block bg-accent-orange text-white font-bold text-lg md:text-xl px-12 py-6 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105"
-          >
-            Calcular Mi Sistema
-          </Link>
+      {/* Hero Section - Clean Design */}
+      <section className="py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            {/* Hero Card */}
+            <div className="bg-white rounded-2xl p-8 md:p-12 text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+              <div className="mb-8">
+                <Image
+                  src="/icon.png"
+                  alt="P&G Logo"
+                  width={120}
+                  height={120}
+                  className="mx-auto rounded-lg drop-shadow-lg"
+                  priority
+                />
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold text-primary-navy mb-4">
+                P&G Soluciones Integrales
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold text-accent-orange mb-6">
+                Transforma el Sol en Ahorro
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Liderando la revolución de energía renovable con soluciones solares innovadoras para Cuba.
+              </p>
+              <Link
+                href="/calculator"
+                className="inline-block bg-accent-orange text-white font-bold text-lg px-10 py-5 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Calcular Mi Sistema Solar
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -81,6 +86,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Footer */}
       <footer className="bg-primary-navy text-white py-16">
