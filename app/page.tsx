@@ -1,50 +1,129 @@
 "use client";
 
 import Image from "next/image";
-import { useLanguage } from "./context/LanguageContext";
+import Link from "next/link";
 import Navigation from "./components/Navigation";
 
 export default function Home() {
-  const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen relative">
-      <Image
-        src="/solar-panels.jpg"
-        alt="Solar Panels Background"
-        fill
-        className="object-cover"
-        priority
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-png-blue-dark/90 via-png-blue-dark/85 to-black/90" />
+    <div className="min-h-screen bg-light-gray">
+      <Navigation currentPage="home" variant="dark" />
       
-      <Navigation currentPage="home" variant="light" />
-
-      <main className="relative z-10 container mx-auto px-4 py-16">
-        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
-          <div className="text-center max-w-4xl">
-            <div className="mb-8 flex justify-center">
-              <Image
-                src="/icon.png"
-                alt="P&G Logo"
-                width={310}
-                height={310}
-                className="drop-shadow-2xl"
-                priority
-              />
+      {/* Hero Section */}
+      <section className="bg-white py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div>
+              <div className="mb-6">
+                <Image
+                  src="/icon-blue.svg"
+                  alt="P&G Logo"
+                  width={120}
+                  height={120}
+                  className="drop-shadow-lg"
+                  priority
+                />
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold text-accent-orange mb-4">
+                P&G
+              </h1>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-navy mb-6">
+                Soluciones Integrales
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Transforma el Sol en Ahorro. Liderando la revolución de energía renovable con soluciones solares innovadoras.
+              </p>
+              <Link
+                href="/calculator"
+                className="inline-block bg-accent-orange text-white font-bold text-lg px-10 py-5 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Ir a la Calculadora
+              </Link>
             </div>
-            <h1 className="text-6xl md:text-8xl font-bold text-png-orange mb-8 drop-shadow-2xl">
-              P&G
-            </h1>
-            <p className="text-2xl md:text-3xl text-png-orange-light mb-6 drop-shadow-lg font-light">
-              {t.home.tagline}
-            </p>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow">
-              {t.home.description}
-            </p>
+            
+            {/* Right: Image */}
+            <div className="hidden md:block">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/solar-panels.jpg"
+                  alt="Solar Panels"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </main>
+      </section>
+
+      {/* Trust/Benefits Section */}
+      <section className="py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-navy text-center mb-16">
+              ¿Por Qué Elegirnos?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-2xl text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-primary-navy mb-3">Ingeniería Experta</h3>
+                <p className="text-gray-600">Diseño e instalación profesional certificada con atención a cada detalle</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-primary-navy mb-3">Monitoreo 24/7</h3>
+                <p className="text-gray-600">Supervisión constante de tu sistema solar para máximo rendimiento</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-primary-navy mb-3">Garantía Total</h3>
+                <p className="text-gray-600">Respaldo completo en equipos y servicio para tu tranquilidad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-primary-navy text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">P&G Soluciones Integrales</h3>
+              <p className="text-gray-300">Transformando el futuro energético de Cuba</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4 text-lg">Contacto</h4>
+              <p className="text-gray-300 mb-2">hamilton@grupopg.com</p>
+              <p className="text-gray-300 mb-2">+53 63405387</p>
+              <p className="text-gray-300">Calle 23 y G #970, Vedado, La Habana, Cuba</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4 text-lg">Síguenos</h4>
+              <div className="flex gap-4">
+                <a href="https://facebook.com/grupopg" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-orange transition-colors">Facebook</a>
+                <a href="https://instagram.com/grupopg" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-orange transition-colors">Instagram</a>
+                <a href="https://wa.me/5363405387" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent-orange transition-colors">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
