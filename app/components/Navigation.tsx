@@ -51,15 +51,15 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-4 py-2">
               <Image
                 src="/icon.png"
                 alt="P&G Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-lg"
+                width={60}
+                height={60}
+                className="w-12 h-12 md:w-14 md:h-14 lg:w-[60px] lg:h-[60px] rounded-lg"
               />
-              <span className={`text-2xl font-bold ${textClass} hidden md:inline`}>
+              <span className={`text-2xl md:text-3xl font-bold ${textClass} hidden md:inline`}>
                 P&G
               </span>
             </Link>
@@ -147,23 +147,19 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
       
       {/* Mobile Menu - Slide from right */}
       <div 
-        className={`md:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm bg-gradient-to-br ${
-          isLightVariant 
-            ? 'from-white via-gray-50 to-gray-100' 
-            : 'from-white via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900'
-        } shadow-2xl z-[9999] transform transition-transform duration-300 ease-out ${
+        className={`md:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm bg-primary-navy shadow-2xl z-[9999] transform transition-transform duration-300 ease-out ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Menu Header */}
-        <div className={`p-6 border-b ${isLightVariant ? 'border-gray-200' : 'border-gray-200 dark:border-gray-700'}`}>
+        <div className="p-6 border-b border-accent-orange">
           <div className="flex items-center justify-between">
-            <h2 className={`text-xl font-bold ${isLightVariant ? 'text-gray-900' : 'text-gray-900 dark:text-white'}`}>
+            <h2 className="text-xl font-bold text-white">
               Menu
             </h2>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className={`p-2 rounded-xl ${isLightVariant ? 'hover:bg-gray-200 text-gray-700' : 'hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'} transition-colors`}
+              className="p-2 rounded-xl hover:bg-accent-orange text-white transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -180,15 +176,15 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 key={link.key}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-bold transition-all duration-200 ${
                   currentPage === link.key 
-                    ? 'bg-gradient-to-r from-png-orange to-png-orange-light text-white shadow-lg shadow-png-orange/30 scale-[1.02]' 
-                    : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
+                    ? 'bg-accent-orange text-white shadow-lg scale-[1.02]' 
+                    : 'text-white hover:bg-accent-orange/20 active:scale-95'
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  currentPage === link.key ? 'bg-white' : 'bg-png-orange group-hover:scale-150'
+                  currentPage === link.key ? 'bg-white' : 'bg-accent-orange group-hover:scale-150'
                 }`} />
                 {link.label}
               </Link>
@@ -198,20 +194,20 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
               <Link
                 href="/admin"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-bold transition-all duration-200 ${
                   currentPage === "admin"
-                    ? 'bg-gradient-to-r from-png-blue to-png-blue-light text-white shadow-lg shadow-png-blue/30 scale-[1.02]' 
-                    : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
+                    ? 'bg-accent-orange text-white shadow-lg scale-[1.02]' 
+                    : 'text-white hover:bg-accent-orange/20 active:scale-95'
                 }`}
               >
                 <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  currentPage === "admin" ? 'bg-white' : 'bg-png-blue group-hover:scale-150'
+                  currentPage === "admin" ? 'bg-white' : 'bg-accent-orange group-hover:scale-150'
                 }`} />
                 Admin
               </Link>
             )}
 
-            <div className="my-4 border-t border-gray-200 dark:border-gray-700" />
+            <div className="my-4 border-t border-accent-orange/30" />
 
             {isAuthenticated ? (
               <button
@@ -219,9 +215,7 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                   handleLogout();
                   setMobileMenuOpen(false);
                 }}
-                className={`group flex items-center gap-3 w-full text-left py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
-                  isLightVariant ? 'text-red-600 hover:bg-red-50 active:scale-95' : 'text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 active:scale-95'
-                }`}
+                className="group flex items-center gap-3 w-full text-left py-4 px-5 rounded-2xl text-base font-bold transition-all duration-200 text-red-400 hover:bg-red-900/20 active:scale-95"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 group-hover:scale-150 transition-all" />
                 {t.nav.logout}
@@ -230,14 +224,14 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
               <Link
                 href="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-medium transition-all duration-200 ${
+                className={`group flex items-center gap-3 py-4 px-5 rounded-2xl text-base font-bold transition-all duration-200 ${
                   currentPage === "login"
-                    ? 'bg-gradient-to-r from-png-orange to-png-orange-light text-white shadow-lg shadow-png-orange/30 scale-[1.02]' 
-                    : `${isLightVariant ? 'text-gray-800 hover:bg-gray-200 active:scale-95' : 'text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-95'}`
+                    ? 'bg-accent-orange text-white shadow-lg scale-[1.02]' 
+                    : 'text-white hover:bg-accent-orange/20 active:scale-95'
                 }`}
               >
                 <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  currentPage === "login" ? 'bg-white' : 'bg-png-orange group-hover:scale-150'
+                  currentPage === "login" ? 'bg-white' : 'bg-accent-orange group-hover:scale-150'
                 }`} />
                 {t.nav.login}
               </Link>

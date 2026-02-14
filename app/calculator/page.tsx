@@ -85,7 +85,7 @@ export default function Calculator() {
             <form onSubmit={calculateSystem} className="space-y-10">
               {/* Monthly Bill Slider */}
               <div>
-                <label className="block text-sm font-semibold text-primary-navy mb-4">
+                <label className="block text-lg font-bold text-primary-navy mb-4">
                   Tu Factura Mensual de Electricidad
                 </label>
                 <div className="text-center mb-6">
@@ -112,7 +112,7 @@ export default function Calculator() {
 
               {/* Roof Type Selection */}
               <div>
-                <label className="block text-sm font-semibold text-primary-navy mb-4">
+                <label className="block text-lg font-bold text-primary-navy mb-4">
                   Tipo de Techo
                 </label>
                 <div className="grid grid-cols-3 gap-4">
@@ -151,18 +151,18 @@ export default function Calculator() {
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-light-gray p-8 rounded-xl">
-                  <p className="text-sm font-medium text-gray-600 mb-2">
+                  <p className="text-sm font-bold text-primary-navy mb-2">
                     Paneles Estimados
                   </p>
-                  <p className="text-5xl font-bold text-primary-navy">
+                  <p className="text-5xl md:text-6xl font-bold text-primary-navy">
                     {result.numberOfPanels}
                   </p>
                 </div>
                 <div className="bg-light-gray p-8 rounded-xl">
-                  <p className="text-sm font-medium text-gray-600 mb-2">
+                  <p className="text-sm font-bold text-primary-navy mb-2">
                     Ahorro Anual
                   </p>
-                  <p className="text-5xl font-bold text-accent-orange">
+                  <p className="text-6xl md:text-7xl font-bold text-accent-orange">
                     ${result.yearlySavings}
                   </p>
                 </div>
