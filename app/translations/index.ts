@@ -322,7 +322,7 @@ export const translations = {
     },
     home: {
       companyName: "Grupo P&G",
-      tagline: "Soluciones de Energía Solar",
+      tagline: "Soluciones Integrales",
       description: "Liderando el camino en energía renovable con sistemas fotovoltaicos innovadores",
     },
     about: {

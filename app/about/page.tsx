@@ -182,15 +182,15 @@ export default function About() {
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="text-center">
-                <p className="text-4xl md:text-5xl font-bold mb-2">5000+</p>
+                <p className="text-4xl md:text-5xl font-bold mb-2">50+</p>
                 <p className="text-white/90">{t.about.commitment.stats.installations}</p>
               </div>
               <div className="text-center">
-                <p className="text-4xl md:text-5xl font-bold mb-2">15+</p>
+                <p className="text-4xl md:text-5xl font-bold mb-2">5+</p>
                 <p className="text-white/90">{t.about.commitment.stats.experience}</p>
               </div>
               <div className="text-center">
-                <p className="text-4xl md:text-5xl font-bold mb-2">98%</p>
+                <p className="text-4xl md:text-5xl font-bold mb-2">100%</p>
                 <p className="text-white/90">{t.about.commitment.stats.satisfaction}</p>
               </div>
             </div>

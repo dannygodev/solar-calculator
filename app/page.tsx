@@ -25,10 +25,10 @@ export default function Home() {
           <div className="text-center max-w-4xl">
             <div className="mb-8 flex justify-center">
               <Image
-                src="/icon-blue.svg"
+                src="/icon.png"
                 alt="P&G Logo"
-                width={180}
-                height={180}
+                width={310}
+                height={310}
                 className="drop-shadow-2xl"
                 priority
               />
