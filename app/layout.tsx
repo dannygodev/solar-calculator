@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${roboto.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${roboto.variable} antialiased bg-light-gray`}
         style={{ fontFamily: 'var(--font-montserrat), var(--font-roboto), sans-serif' }}
       >
         <LanguageProvider>

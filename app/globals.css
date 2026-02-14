@@ -32,12 +32,10 @@
   --color-png-blue-dark: var(--png-blue-dark);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* 60-30-10 Design System Enforced */
+/* 60% Light Gray Background - Primary surface */
+/* 30% Navy Blue - Headers, text, borders, navbar/footer */
+/* 10% Orange - Buttons, active states, key numbers */
 
 body {
   background: var(--background);

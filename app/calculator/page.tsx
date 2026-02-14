@@ -1,41 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
 
 export default function Calculator() {
-  const [monthlyBill, setMonthlyBill] = useState(150);
-  const [roofType, setRoofType] = useState<'flat' | 'pitched' | 'tile'>('pitched');
+  // New Inputs as per requirements
+  const [monthlyConsumption, setMonthlyConsumption] = useState(500); // kWh
+  const [sunHours, setSunHours] = useState(5.0); // HSP
+  const [maxPower, setMaxPower] = useState(5); // kW
+  const [backupHours, setBackupHours] = useState(4); // Hours
+  
   const [result, setResult] = useState<{
-    numberOfPanels: number;
-    yearlySavings: number;
+    panelsNeeded: number;
+    inverterSize: number;
+    batteryCapacity: number;
   } | null>(null);
 
-  const roofTypes = [
-    { id: 'flat', label: 'Techo Plano', icon: '▭' },
-    { id: 'pitched', label: 'Techo Inclinado', icon: '⌂' },
-    { id: 'tile', label: 'Techo de Tejas', icon: '⌂' },
-  ];
-
-  const calculateSystem = (e: React.FormEvent) => {
-    e.preventDefault();
+  // Engineering Formulas - Reactive calculation
+  useEffect(() => {
+    // dailyUsage = monthlyConsumption / 30
+    const dailyUsage = monthlyConsumption / 30;
     
-    // Simple calculation based on monthly bill
-    const avgKwhCost = 0.12; // $0.12 per kWh
-    const monthlyKwh = monthlyBill / avgKwhCost;
-    const dailyKwh = monthlyKwh / 30;
-    const sunHours = 5; // Average sun hours
-    const panelWattage = 400; // 400W panels
-    const systemEfficiency = 0.85;
+    // panelsNeeded = Math.ceil((dailyUsage / (sunHours * 0.80)) * 1000 / 550)
+    // Assumes 550W Panels with 80% efficiency
+    const panelsNeeded = Math.ceil((dailyUsage / (sunHours * 0.80)) * 1000 / 550);
     
-    const panelsNeeded = Math.ceil(dailyKwh / ((panelWattage * sunHours * systemEfficiency) / 1000));
-    const yearlySavings = Math.round(monthlyBill * 12 * 0.8); // 80% savings estimate
+    // inverterSize = maxPower * 1.20 (20% Safety margin)
+    const inverterSize = parseFloat((maxPower * 1.20).toFixed(2));
+    
+    // batteryCapacity = (dailyUsage / 24) * backupHours / 0.90 (90% DoD)
+    const batteryCapacity = parseFloat(((dailyUsage / 24) * backupHours / 0.90).toFixed(2));
     
     setResult({
-      numberOfPanels: panelsNeeded,
-      yearlySavings: yearlySavings,
+      panelsNeeded,
+      inverterSize,
+      batteryCapacity,
     });
-  };
+  }, [monthlyConsumption, sunHours, maxPower, backupHours]);
 
   return (
     <div className="min-h-screen bg-light-gray">
@@ -82,89 +83,155 @@ export default function Calculator() {
 
           {/* Calculator Card */}
           <div className="bg-white rounded-2xl p-8 md:p-12" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-            <form onSubmit={calculateSystem} className="space-y-10">
-              {/* Monthly Bill Slider */}
+            <div className="space-y-10">
+              {/* Input 1: Monthly Consumption (kWh) */}
               <div>
-                <label className="block text-sm font-semibold text-primary-navy mb-4">
-                  Tu Factura Mensual de Electricidad
+                <label className="block text-lg font-bold text-primary-navy mb-4">
+                  Consumo Mensual (kWh)
                 </label>
                 <div className="text-center mb-6">
-                  <span className="text-5xl font-bold text-primary-navy">${monthlyBill}</span>
-                  <span className="text-xl text-gray-500">/mes</span>
+                  <span className="text-5xl font-bold text-primary-navy">{monthlyConsumption}</span>
+                  <span className="text-xl text-gray-500"> kWh</span>
                 </div>
                 <input
                   type="range"
-                  min="50"
-                  max="500"
-                  step="10"
-                  value={monthlyBill}
-                  onChange={(e) => setMonthlyBill(Number(e.target.value))}
+                  min="100"
+                  max="2000"
+                  step="50"
+                  value={monthlyConsumption}
+                  onChange={(e) => setMonthlyConsumption(Number(e.target.value))}
                   className="w-full h-3 bg-light-gray rounded-lg appearance-none cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, #F48C26 0%, #F48C26 ${((monthlyBill - 50) / 450) * 100}%, #F5F7FA ${((monthlyBill - 50) / 450) * 100}%, #F5F7FA 100%)`
+                    background: `linear-gradient(to right, #F48C26 0%, #F48C26 ${((monthlyConsumption - 100) / 1900) * 100}%, #F5F7FA ${((monthlyConsumption - 100) / 1900) * 100}%, #F5F7FA 100%)`
                   }}
                 />
                 <div className="flex justify-between text-sm text-gray-500 mt-2">
-                  <span>$50</span>
-                  <span>$500</span>
+                  <span>100 kWh</span>
+                  <span>2000 kWh</span>
                 </div>
               </div>
 
-              {/* Roof Type Selection */}
+              {/* Input 2: Peak Sun Hours (HSP) */}
               <div>
-                <label className="block text-sm font-semibold text-primary-navy mb-4">
-                  Tipo de Techo
+                <label className="block text-lg font-bold text-primary-navy mb-4">
+                  Horas Sol Pico (HSP)
                 </label>
-                <div className="grid grid-cols-3 gap-4">
-                  {roofTypes.map((type) => (
-                    <button
-                      key={type.id}
-                      type="button"
-                      onClick={() => setRoofType(type.id as 'flat' | 'pitched' | 'tile')}
-                      className={`p-6 rounded-xl border-2 transition-all duration-300 ${
-                        roofType === type.id
-                          ? 'bg-primary-navy border-accent-orange text-white shadow-lg'
-                          : 'bg-white border-primary-navy text-primary-navy hover:border-accent-orange'
-                      }`}
-                    >
-                      <div className="text-4xl mb-2">{type.icon}</div>
-                      <div className="text-sm font-medium">{type.label}</div>
-                    </button>
-                  ))}
+                <div className="text-center mb-6">
+                  <span className="text-5xl font-bold text-primary-navy">{sunHours.toFixed(1)}</span>
+                  <span className="text-xl text-gray-500"> HSP</span>
+                </div>
+                <input
+                  type="range"
+                  min="3.0"
+                  max="7.0"
+                  step="0.1"
+                  value={sunHours}
+                  onChange={(e) => setSunHours(Number(e.target.value))}
+                  className="w-full h-3 bg-light-gray rounded-lg appearance-none cursor-pointer"
+                  style={{
+                    background: `linear-gradient(to right, #F48C26 0%, #F48C26 ${((sunHours - 3.0) / 4.0) * 100}%, #F5F7FA ${((sunHours - 3.0) / 4.0) * 100}%, #F5F7FA 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-sm text-gray-500 mt-2">
+                  <span>3.0 HSP</span>
+                  <span>7.0 HSP</span>
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-accent-orange text-white font-bold text-lg py-5 px-8 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Calcular Mi Sistema Solar
-              </button>
-            </form>
+              {/* Input 3: Max Power (kW) */}
+              <div>
+                <label className="block text-lg font-bold text-primary-navy mb-4">
+                  Potencia Instantánea (kW)
+                </label>
+                <div className="text-center mb-6">
+                  <span className="text-5xl font-bold text-primary-navy">{maxPower}</span>
+                  <span className="text-xl text-gray-500"> kW</span>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="20"
+                  step="1"
+                  value={maxPower}
+                  onChange={(e) => setMaxPower(Number(e.target.value))}
+                  className="w-full h-3 bg-light-gray rounded-lg appearance-none cursor-pointer"
+                  style={{
+                    background: `linear-gradient(to right, #F48C26 0%, #F48C26 ${((maxPower - 1) / 19) * 100}%, #F5F7FA ${((maxPower - 1) / 19) * 100}%, #F5F7FA 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-sm text-gray-500 mt-2">
+                  <span>1 kW</span>
+                  <span>20 kW</span>
+                </div>
+              </div>
+
+              {/* Input 4: Backup Hours */}
+              <div>
+                <label className="block text-lg font-bold text-primary-navy mb-4">
+                  Autonomía (Horas)
+                </label>
+                <div className="text-center mb-6">
+                  <span className="text-5xl font-bold text-primary-navy">{backupHours}</span>
+                  <span className="text-xl text-gray-500"> h</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="24"
+                  step="1"
+                  value={backupHours}
+                  onChange={(e) => setBackupHours(Number(e.target.value))}
+                  className="w-full h-3 bg-light-gray rounded-lg appearance-none cursor-pointer"
+                  style={{
+                    background: `linear-gradient(to right, #F48C26 0%, #F48C26 ${(backupHours / 24) * 100}%, #F5F7FA ${(backupHours / 24) * 100}%, #F5F7FA 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-sm text-gray-500 mt-2">
+                  <span>0 h</span>
+                  <span>24 h</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Results Section */}
+          {/* Results Section - 3 Card Grid */}
           {result && (
             <div className="bg-white rounded-2xl p-8 md:p-12 mt-8" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
               <h2 className="text-3xl font-bold text-primary-navy mb-8 text-center">
-                Tus Resultados
+                Resultados del Sistema
               </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-light-gray p-8 rounded-xl">
-                  <p className="text-sm font-medium text-gray-600 mb-2">
-                    Paneles Estimados
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Card 1: Panels */}
+                <div className="bg-light-gray p-8 rounded-xl text-center">
+                  <p className="text-sm font-semibold text-primary-navy mb-3">
+                    Paneles Solares
                   </p>
-                  <p className="text-5xl font-bold text-primary-navy">
-                    {result.numberOfPanels}
+                  <p className="text-5xl font-bold text-accent-orange mb-2">
+                    {result.panelsNeeded}
                   </p>
+                  <p className="text-xs text-gray-500">Paneles de 550W</p>
                 </div>
-                <div className="bg-light-gray p-8 rounded-xl">
-                  <p className="text-sm font-medium text-gray-600 mb-2">
-                    Ahorro Anual
+                
+                {/* Card 2: Inverter */}
+                <div className="bg-light-gray p-8 rounded-xl text-center">
+                  <p className="text-sm font-semibold text-primary-navy mb-3">
+                    Inversor
                   </p>
-                  <p className="text-5xl font-bold text-accent-orange">
-                    ${result.yearlySavings}
+                  <p className="text-5xl font-bold text-accent-orange mb-2">
+                    {result.inverterSize}
                   </p>
+                  <p className="text-xs text-gray-500">kW (con margen 20%)</p>
+                </div>
+                
+                {/* Card 3: Batteries */}
+                <div className="bg-light-gray p-8 rounded-xl text-center">
+                  <p className="text-sm font-semibold text-primary-navy mb-3">
+                    Baterías
+                  </p>
+                  <p className="text-5xl font-bold text-accent-orange mb-2">
+                    {result.batteryCapacity}
+                  </p>
+                  <p className="text-xs text-gray-500">kWh (DoD 90%)</p>
                 </div>
               </div>
             </div>

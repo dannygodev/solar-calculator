@@ -35,15 +35,13 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
   const isLightVariant = variant === "light";
   const bgClass = isLightVariant 
     ? "bg-white/10 backdrop-blur-md border-b border-white/20" 
-    : "bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-800/80 dark:border-gray-700";
+    : "bg-primary-navy";
   
-  const textClass = isLightVariant ? "text-white" : "text-gray-900 dark:text-white";
+  const textClass = isLightVariant ? "text-white" : "text-white";
   const linkClass = isLightVariant 
-    ? "text-white hover:text-png-orange" 
-    : "text-gray-700 hover:text-png-orange dark:text-gray-300 dark:hover:text-png-orange-light";
-  const activeClass = isLightVariant 
-    ? "text-png-orange" 
-    : "text-png-orange dark:text-png-orange-light";
+    ? "text-white hover:text-accent-orange" 
+    : "text-white hover:text-accent-orange";
+  const activeClass = "text-accent-orange";
 
   return (
     <>
@@ -55,9 +53,9 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
               <Image
                 src="/icon.png"
                 alt="P&G Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-lg"
+                width={60}
+                height={60}
+                className="w-12 h-12 md:w-14 md:h-14 lg:w-[60px] lg:h-[60px] rounded-lg"
               />
               <span className={`text-2xl font-bold ${textClass} hidden md:inline`}>
                 P&G
