@@ -24,8 +24,8 @@ export default function Home() {
                   <Image
                     src="/icon.png"
                     alt="P&G Logo"
-                    width={100}
-                    height={100}
+                    width={200}
+                    height={200}
                     className="mx-auto lg:mx-0 rounded-lg drop-shadow-lg"
                     priority
                     quality={75}
@@ -34,7 +34,7 @@ export default function Home() {
                 
                 {/* Main Headline */}
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-navy leading-tight">
-                  Transforma el Sol en Ahorro
+                  P&G
                 </h1>
                 
                 {/* Subheadline */}
@@ -56,12 +56,12 @@ export default function Home() {
               {/* Right Column: Image Content */}
               <div className="relative h-64 md:h-96 lg:h-[500px]">
                 <Image
-                  src="/hero-panel-transparent.png"
+                  src="/solar-panel-4.png"
                   alt="Solar Panel System"
                   fill
                   className="object-contain"
                   priority
-                  quality={75}
+                  quality={100}
                 />
               </div>
             </div>

@@ -18,17 +18,17 @@ export default function FAQSection() {
     {
       question: t.faq?.q1 || "¿Funcionan los paneles si está nublado?",
       answer: t.faq?.a1 || "Sí, los paneles modernos captan radiación difusa. Aunque la producción baja un 10-20%, siguen generando energía.",
-      image: "/solar-cloudy.jpg"
+      image: "/cloudy-panel2.png"
     },
     {
       question: t.faq?.q2 || "¿Qué pasa si se va la luz?",
       answer: t.faq?.a2 || "Si tienes baterías, el sistema actúa como respaldo automático. Si es un sistema solo de red (Grid-Tie), se apaga por seguridad.",
-      image: "/battery-backup.jpg"
+      image: "/battery-backup.png"
     },
     {
       question: t.faq?.q3 || "¿Cuánto duran los equipos?",
       answer: t.faq?.a3 || "Los paneles tienen una vida útil de 25-30 años. Los inversores 10-15 años y las baterías de Litio 10 años (6000 ciclos).",
-      image: "/solar-durability.jpg"
+      image: "/helper-image2.jpeg"
     }
   ];
 

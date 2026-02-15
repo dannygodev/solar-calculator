@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Navigation from "../components/Navigation";
 
 export default function Calculator() {
@@ -61,10 +62,14 @@ export default function Calculator() {
               </a>
             </div>
             <div className="hidden md:block">
-              <div className="w-full h-64 bg-gradient-to-br from-primary-navy to-blue-900 rounded-2xl flex items-center justify-center">
-                <svg className="w-32 h-32 text-accent-orange" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                </svg>
+              <div className="relative w-full h-64 rounded-2xl overflow-hidden">
+                <Image
+                  src="/solar-panels2-removebg-preview.png"
+                  alt="Solar Calculator Helper"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                />
               </div>
             </div>
           </div>
