@@ -29,6 +29,31 @@ export default function FAQSection() {
       question: t.faq?.q3 || "¿Cuánto duran los equipos?",
       answer: t.faq?.a3 || "Los paneles tienen una vida útil de 25-30 años. Los inversores 10-15 años y las baterías de Litio 10 años (6000 ciclos).",
       image: "/helper-image2.jpeg"
+    },
+    {
+      question: t.faq?.q4 || "¿Cuánto puedo ahorrar con energía solar?",
+      answer: t.faq?.a4 || "Los ahorros varían según el consumo y la ubicación, pero la mayoría de los clientes reducen sus facturas de electricidad en un 50-90%. El sistema típicamente se paga solo en 5-8 años.",
+      image: "/solar-panel-4.png"
+    },
+    {
+      question: t.faq?.q5 || "¿Necesito limpiar los paneles solares?",
+      answer: t.faq?.a5 || "La lluvia generalmente mantiene los paneles limpios, pero en áreas polvorientas, se recomienda limpiar 2-3 veces al año para mantener la eficiencia óptima.",
+      image: "/cloudy-panel2.png"
+    },
+    {
+      question: t.faq?.q6 || "¿Puedo expandir mi sistema en el futuro?",
+      answer: t.faq?.a6 || "¡Sí! Los sistemas solares son modulares. Puedes agregar más paneles, baterías o actualizar tu inversor a medida que crecen tus necesidades energéticas.",
+      image: "/solar-panel-4.png"
+    },
+    {
+      question: t.faq?.q7 || "¿Qué mantenimiento requiere un sistema solar?",
+      answer: t.faq?.a7 || "Los sistemas solares requieren mantenimiento mínimo. Inspecciones anuales y limpieza ocasional son generalmente suficientes para garantizar un rendimiento óptimo.",
+      image: "/helper-image2.jpeg"
+    },
+    {
+      question: t.faq?.q8 || "¿Hay financiamiento disponible para instalaciones solares?",
+      answer: t.faq?.a8 || "Sí, ofrecemos opciones de financiamiento flexibles incluyendo planes de pago y programas de arrendamiento para hacer la energía solar accesible para cada presupuesto.",
+      image: "/battery-backup.png"
     }
   ];
 

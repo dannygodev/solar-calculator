@@ -32,7 +32,7 @@ export default function Products() {
       description: "Panel de alta eficiencia SRNE con tecnología PERC",
       descriptionEn: "SRNE high-efficiency panel with PERC technology",
       price: "$299",
-      image: "/solar-panel-1.jpg",
+      image: "/solar-panel-3.jpg",
       category: "Paneles Solares",
       categoryEn: "Solar Panels",
       brand: "SRNE",

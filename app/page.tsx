@@ -4,8 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Navigation from "./components/Navigation";
 import FAQSection from "./components/FAQSection";
+import { useLanguage } from "./context/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-light-gray">
@@ -18,7 +20,7 @@ export default function Home() {
             {/* 2-Column Grid for Desktop */}
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Column: Text Content */}
-              <div className="text-center lg:text-left space-y-6">
+              <div className="text-center lg:text-left space-y-6 lg:flex lg:flex-col lg:justify-center">
                 {/* Logo */}
                 <div className="mb-6">
                   <Image
@@ -33,13 +35,13 @@ export default function Home() {
                 </div>
                 
                 {/* Main Headline */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-navy leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent-orange leading-tight">
                   P&G
                 </h1>
                 
                 {/* Subheadline */}
                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                  Liderando la revolución de energía renovable con soluciones solares innovadoras para Cuba.
+                  {t.home?.description || "Liderando la revolución de energía renovable con soluciones solares innovadoras para Cuba."}
                 </p>
                 
                 {/* CTA Button */}
@@ -48,7 +50,7 @@ export default function Home() {
                     href="/calculator"
                     className="inline-block bg-accent-orange text-white font-bold text-lg px-10 py-5 rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
-                    Calcular Mi Sistema Solar
+                    {t.home?.ctaButton || "Calcular Mi Sistema Solar"}
                   </Link>
                 </div>
               </div>
@@ -59,7 +61,7 @@ export default function Home() {
                   src="/solar-panel-4.png"
                   alt="Solar Panel System"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   priority
                   quality={100}
                 />
@@ -74,7 +76,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-primary-navy text-center mb-16">
-              ¿Por Qué Elegirnos?
+              {t.home?.whyChooseTitle || "¿Por Qué Elegirnos?"}
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-2xl text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
@@ -83,8 +85,8 @@ export default function Home() {
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-primary-navy mb-3">Ingeniería Experta</h3>
-                <p className="text-gray-600">Diseño e instalación profesional certificada con atención a cada detalle</p>
+                <h3 className="text-xl font-bold text-primary-navy mb-3">{t.home?.benefit1Title || "Ingeniería Experta"}</h3>
+                <p className="text-gray-600">{t.home?.benefit1Desc || "Diseño e instalación profesional certificada con atención a cada detalle"}</p>
               </div>
               <div className="bg-white p-8 rounded-2xl text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                 <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center mx-auto mb-6">
@@ -92,8 +94,8 @@ export default function Home() {
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-primary-navy mb-3">Monitoreo 24/7</h3>
-                <p className="text-gray-600">Supervisión constante de tu sistema solar para máximo rendimiento</p>
+                <h3 className="text-xl font-bold text-primary-navy mb-3">{t.home?.benefit2Title || "Monitoreo 24/7"}</h3>
+                <p className="text-gray-600">{t.home?.benefit2Desc || "Supervisión constante de tu sistema solar para máximo rendimiento"}</p>
               </div>
               <div className="bg-white p-8 rounded-2xl text-center" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                 <div className="w-16 h-16 bg-accent-orange rounded-full flex items-center justify-center mx-auto mb-6">
@@ -101,8 +103,8 @@ export default function Home() {
                     <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-primary-navy mb-3">Garantía Total</h3>
-                <p className="text-gray-600">Respaldo completo en equipos y servicio para tu tranquilidad</p>
+                <h3 className="text-xl font-bold text-primary-navy mb-3">{t.home?.benefit3Title || "Garantía Total"}</h3>
+                <p className="text-gray-600">{t.home?.benefit3Desc || "Respaldo completo en equipos y servicio para tu tranquilidad"}</p>
               </div>
             </div>
           </div>

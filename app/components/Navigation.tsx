@@ -57,7 +57,7 @@ export default function Navigation({ currentPage, variant = "light" }: Navigatio
                 height={60}
                 className="w-12 h-12 md:w-14 md:h-14 lg:w-[60px] lg:h-[60px] rounded-lg"
               />
-              <span className={`text-2xl font-bold ${textClass} hidden md:inline`}>
+              <span className="text-2xl font-bold text-accent-orange hidden md:inline">
                 P&G
               </span>
             </Link>
